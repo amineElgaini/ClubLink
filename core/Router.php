@@ -2,10 +2,12 @@
 
 class Router
 {
+    private string $basePath = '';
     private array $routes = [
         'GET' => [],
         'POST' => [],
     ];
+
 
     public function get(string $uri, $action): void
     {
@@ -21,10 +23,21 @@ class Router
         ];
     }
 
+    public function setBasePath(string $basePath): void
+    {
+        $this->basePath = '/' . trim($basePath, '/');
+    }
+
+
     public function dispatch(): void
     {
         $method = $_SERVER['REQUEST_METHOD'];
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+        // Remove base path (e.g. /ClubLink)
+        if ($this->basePath && str_starts_with($uri, $this->basePath)) {
+            $uri = substr($uri, strlen($this->basePath));
+        }
 
         $uri = $this->normalize($uri);
 
@@ -54,7 +67,7 @@ class Router
         } elseif (is_array($action) && count($action) === 2) {
             // Controller array [Controller, 'method']
             [$controller, $method] = $action;
-            require_once __DIR__ . "/Controllers/{$controller}.php";
+            require_once __DIR__ . "/../app/Controllers/{$controller}.php";
             $instance = new $controller();
             call_user_func_array([$instance, $method], $params);
         } else {

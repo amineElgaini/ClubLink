@@ -1,4 +1,5 @@
 <?php
+session_start();
 $envFile = __DIR__ . '/../.env';
 if (file_exists($envFile)) {
     $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -19,12 +20,7 @@ require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../core/Router.php';
 
 $router = new Router();
-
-require_once __DIR__ . '/../app/Controllers/AuthController.php';
-require_once __DIR__ . '/../app/Controllers/ClubController.php';
-require_once __DIR__ . '/../app/Controllers/ArticleController.php';
-require_once __DIR__ . '/../app/Controllers/EventController.php';
-require_once __DIR__ . '/../app/Controllers/AdminController.php';
+$router->setBasePath('ClubLink');
 
 $router->get('/login', [AuthController::class, 'loginPage']);
 $router->post('/login', [AuthController::class, 'loginAction']);
