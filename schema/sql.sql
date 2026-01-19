@@ -45,22 +45,12 @@ CREATE TABLE events (
     description TEXT,
     event_date DATE NOT NULL,
     location VARCHAR(150) NOT NULL,
+    image_url TEXT, -- store only the URL of the image
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT fk_event_club
         FOREIGN KEY (club_id)
         REFERENCES clubs(id)
-        ON DELETE CASCADE
-);
-
-CREATE TABLE event_images (
-    id SERIAL PRIMARY KEY,
-    event_id INT NOT NULL,
-    image_path TEXT NOT NULL,
-
-    CONSTRAINT fk_event_image
-        FOREIGN KEY (event_id)
-        REFERENCES events(id)
         ON DELETE CASCADE
 );
 
@@ -104,12 +94,15 @@ CREATE TABLE reviews (
         ON DELETE CASCADE
 );
 
+
+
 CREATE TABLE articles (
     id SERIAL PRIMARY KEY,
     club_id INT NOT NULL,
     event_id INT,
     title VARCHAR(150) NOT NULL,
     content TEXT NOT NULL,
+    image_url TEXT, -- store only the URL of the image
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT fk_article_club
@@ -123,13 +116,3 @@ CREATE TABLE articles (
         ON DELETE SET NULL
 );
 
-CREATE TABLE article_images (
-    id SERIAL PRIMARY KEY,
-    article_id INT NOT NULL,
-    image_path TEXT NOT NULL,
-
-    CONSTRAINT fk_article_image
-        FOREIGN KEY (article_id)
-        REFERENCES articles(id)
-        ON DELETE CASCADE
-);
