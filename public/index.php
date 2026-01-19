@@ -1,5 +1,4 @@
 <?php
-session_start();
 $envFile = __DIR__ . '/../.env';
 if (file_exists($envFile)) {
     $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -13,7 +12,9 @@ if (file_exists($envFile)) {
 require_once __DIR__ . '/../core/Logger.php';
 require_once __DIR__ . '/../core/AppException.php';
 require_once __DIR__ . '/../core/ErrorHandler.php';
+require_once __DIR__ . '/../app/Models/User.php';
 
+session_start();
 ErrorHandler::register();
 
 require_once __DIR__ . '/../config/database.php';
@@ -26,6 +27,7 @@ $router->get('/login', [AuthController::class, 'loginPage']);
 $router->post('/login', [AuthController::class, 'loginAction']);
 $router->get('/register', [AuthController::class, 'registerPage']);
 $router->post('/register', [AuthController::class, 'registerAction']);
+$router->get('/logout', [AuthController::class, 'logout']);
 
 // Clubs
 $router->get('/clubs', [ClubController::class, 'index']); // show all clubs

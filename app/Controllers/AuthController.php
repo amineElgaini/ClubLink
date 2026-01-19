@@ -46,4 +46,12 @@ class AuthController extends Controller
         header('Location: /clubs');
         exit;
     }
+
+    public function logout(): void
+    {
+        User::logout();
+
+        header('Location: ' . './login');
+        exit;
+    }
 }
