@@ -25,5 +25,5 @@ $router->get('/test/by', function() {
 });
 
 
-
-$router->dispatch();
+// echo "hello";
+// $router->dispatch();
