@@ -1,0 +1,19 @@
+- work with session error and success
+
+---------------- pages 6 + 2
+- login page
+- register page
+
+Student:
+- show clubs page => show all club with detail button
+- club info page => club detail, events with inscri and article button
+- show article page => article, form for comment and rate
+
+President:
+- manage event page => table for events with create button, list participent (pop up)
+- article form page => article form
+
+Admin:
+- manage clubs => table with create button, create club form down the table, list members (pop up), list events (pop up)
+- mange students => student table, udpate and delete students
+-------------------------
