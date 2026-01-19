@@ -1,6 +1,6 @@
 <h2>Login</h2>
 
-<form method="POST" action="/login">
+<form method="POST" action="./login">
     <input type="email" name="email" placeholder="Email" required>
 
     <input type="password" name="password" placeholder="Password" required>
@@ -9,5 +9,5 @@
 </form>
 
 <div class="link">
-    <a href="/register">Create an account</a>
+    <a href="./register">Create an account</a>
 </div>
