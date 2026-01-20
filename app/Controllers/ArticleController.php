@@ -4,9 +4,9 @@ require_once __DIR__ . '/../Models/Article.php';
 require_once __DIR__ . '/../Models/Comments.php';
 
 class ArticleController extends Controller {
-  public function show($clubId, $articleId) {
+  public function show($id ) {
     //article
-      $result = Article::getArticle($articleId);
+      $result = Article::getArticle($id);
     //comments
       $comments = Comments::showComments($result['event']);
     //view
@@ -15,7 +15,10 @@ class ArticleController extends Controller {
       $arr['comments'] = $comments;
       $this->view('student/show-article', ['result' =>  $result, 'comment' =>$comments]);
   }
-    public function comment($clubId, $articleId) {}             
+  //ajouter comments
+  public function comment($id) {
+
+  }             
     public function create() {}                                
     public function store() {}                                
 }

@@ -3,6 +3,7 @@
 class Comments{
 
   public static function showComments($eventId){
+    
 $pdo = Config::getPDO();
 
         $stmt = $pdo->prepare(
@@ -12,12 +13,17 @@ $pdo = Config::getPDO();
         $result = $stmt->fetchAll();
       return $result;
   }
-  public static function newComment(){
+  public static function newComment($eventId,$studentId,$rating,$comment){
+$pdo = Config::getPDO();
        $stmt = $pdo->prepare(
-            "insert into reviews()"
+            "insert into reviews(event_id,student_id,rating,comment) values(:event_id,:student_id,:rating,:comment)"
         );
-        $stmt->execute(['event_id' => $eventId ]);
-  
+    $stmt->execute([
+      'event_id' => $eventId,
+      'student_id' => $studentId,
+      'rating' => $rating,
+      'comment' => $comment
+    ]);
   }
 
 }

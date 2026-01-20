@@ -73,7 +73,7 @@
       <div class="flex items-center gap-4 md:gap-8">
         <label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
         </label>
-<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 ring-2 ring-border-dark shadow-sm cursor-pointer" data-alt="User profile avatar showing a smiling student" style='background-image: url();'></div>
+         <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 ring-2 ring-border-dark shadow-sm cursor-pointer" data-alt="User profile avatar showing a smiling student" style='background-image: url();'></div>
       </div>
     </div>
   </header>
@@ -119,10 +119,22 @@
             </h3>
             <div class="prose prose-invert text-gray-300 leading-relaxed space-y-4 max-w-none">
               <p>
+<?=$result['description']?> 
+              </p>
+            </div>
+          </div>
+<div class="bg-surface-dark p-6 rounded-xl border border-border-dark shadow-sm">
+            <h3 class="text-xl font-bold mb-4 flex items-center gap-2 text-white">
+              <span class="material-symbols-outlined text-primary">info</span>
+              Articles
+            </h3>
+            <div class="prose prose-invert text-gray-300 leading-relaxed space-y-4 max-w-none">
+              <p>
 <?=$result['content']?> 
               </p>
             </div>
           </div>
+
           <div class="flex flex-col gap-6 pt-6 border-t border-border-dark">
             <div class="flex items-center justify-between">
               <h3 class="text-2xl font-bold text-white">Reviews &amp; Ratings</h3>
@@ -194,7 +206,7 @@
                   <div class="bg-surface-dark rounded-xl p-6 border border-border-dark mt-4 shadow-sm">
               <h4 class="text-lg font-bold mb-4 text-white">Leave a Review</h4>
 
-              <div class="flex flex-col gap-4">
+              <form action = 'comments' class="flex flex-col gap-4">
                 <div>
                   <label class="block text-sm font-medium text-gray-400 mb-2">Your Rating</label>
                   <div class="flex gap-1 text-gray-500 cursor-pointer">
@@ -214,7 +226,7 @@
                     Submit Review
                   </button>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>

@@ -32,8 +32,8 @@ $router->get('/clubs', [ClubController::class, 'index']); // show all clubs
 $router->get('/clubs/{id}', [ClubController::class, 'show']); // show club details
 
 // Club articles
-$router->get('/clubs/{id}/articles/{articleId}', [ArticleController::class, 'show']); // show article
-$router->post('/clubs/{id}/articles/{articleId}/comments', [ArticleController::class, 'comment']); // post comment
+$router->get('/clubs/events/{id}', [ArticleController::class, 'show']); // show article
+$router->post('/clubs/events/comments/{id}', [ArticleController::class, 'comment']); // post comment
 
 // Club events
 $router->post('/events/{id}/register', [EventController::class, 'register']); // register for event
