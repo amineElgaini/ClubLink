@@ -133,7 +133,67 @@ class ClubController {
         $title = "Club Details - " . $club['name'];
         require __DIR__ . '/../Views/student/club-info.php';
     }    // show single club
-    
+    public function join($id)
+    {
+        // must be logged in
+        if (empty($_SESSION['user'])) {
+            $_SESSION['error'] = 'Please login to join a club.';
+            header('Location: /login');
+            exit;
+        }
+
+        $studentId = (int) $_SESSION['user']->id;
+        $clubId = (int) $id;
+
+        $pdo = Config::getPDO();
+        $maxMembers = 8;
+
+        // 1) check club exists
+        $stmt = $pdo->prepare("SELECT id FROM clubs WHERE id = :id");
+        $stmt->execute(['id' => $clubId]);
+        if (!$stmt->fetch()) {
+            http_response_code(404);
+            echo "Club not found";
+            exit;
+        }
+
+        // 2) check if club is full
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM club_members WHERE club_id = :club_id");
+        $stmt->execute(['club_id' => $clubId]);
+        $count = (int) $stmt->fetchColumn();
+
+        if ($count >= $maxMembers) {
+            $_SESSION['error'] = 'This club is full.';
+            header("Location: /clubs/$clubId");
+            exit;
+        }
+
+        // 3) check if student already in another club (or same club)
+        $stmt = $pdo->prepare("SELECT club_id FROM club_members WHERE student_id = :student_id LIMIT 1");
+        $stmt->execute(['student_id' => $studentId]);
+        $already = $stmt->fetchColumn();
+
+        if ($already) {
+            $_SESSION['error'] = ($already == $clubId)
+                ? 'You are already a member of this club.'
+                : 'You are already in another club.';
+            header("Location: /clubs/$clubId");
+            exit;
+        }
+
+        // 4) insert membership
+        try {
+            $stmt = $pdo->prepare("INSERT INTO club_members (club_id, student_id) VALUES (:club_id, :student_id)");
+            $stmt->execute(['club_id' => $clubId, 'student_id' => $studentId]);
+        } catch (PDOException $e) {
+            // if unique constraint hits (student already in a club)
+            $_SESSION['error'] = 'You cannot join (maybe you are already in a club).';
+        }
+
+        header("Location: /clubs/$clubId");
+        exit;
+    } // a student join a club 
+
     public function store() {}       // create new club (admin)
     public function update($id) {}  // update club (admin)
     public function destroy($id) {} // delete club (admin)
