@@ -173,33 +173,36 @@
                 </div>
               </div>
             </div>
-            <div class="flex flex-col gap-4">
-              <div class="bg-surface-dark rounded-lg p-4 border border-border-dark shadow-sm">
-                <div class="flex justify-between items-start mb-2">
-                  <div class="flex items-center gap-3">
-                    <div class="bg-center bg-no-repeat bg-cover rounded-full size-10" data-alt="Profile picture of Sarah J." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA7jhfEBU2TQFbhhAOcMRS_NgcdTxbP_Qtv4JEqxcs1viL2rpBE0ePPN5GcGTUUQLONHWYPM6PeLiBngsNxv0oPcC-5VbUnabLJR9NJ_h8UjM5-ArdatD2y8so_U9fBtc3NukPXxlctky99_oJTg2bjgev_NQUFrignKboToFyLYGnIpwhVl45qu7lzawWtdmHcH71EkJYgOye23TzQJwTXgMCg6_ZOQWun3qSJstbtmut5hDB9Lbff83291C47u95BkJDH74SVTMM");'></div>
+              <?php
+              foreach($comment as $c){
+              echo "
+              <div class='flex flex-col gap-4'>
+              <div class='bg-surface-dark rounded-lg p-4 border border-border-dark shadow-sm'>
+                <div class='flex justify-between items-start mb-2'>
+                  <div class='flex items-center gap-3'>
+                    <div class='bg-center bg-no-repeat bg-cover rounded-full size-10' data-alt='Profile picture of Sarah J.' style='background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA7jhfEBU2TQFbhhAOcMRS_NgcdTxbP_Qtv4JEqxcs1viL2rpBE0ePPN5GcGTUUQLONHWYPM6PeLiBngsNxv0oPcC-5VbUnabLJR9NJ_h8UjM5-ArdatD2y8so_U9fBtc3NukPXxlctky99_oJTg2bjgev_NQUFrignKboToFyLYGnIpwhVl45qu7lzawWtdmHcH71EkJYgOye23TzQJwTXgMCg6_ZOQWun3qSJstbtmut5hDB9Lbff83291C47u95BkJDH74SVTMM');'></div>
                     <div>
-                      <p class="text-white font-medium text-sm">Sarah Jenkins</p>
-                      <p class="text-gray-500 text-xs">Computer Science Major • Attended 2023</p>
+                      <p class='text-white font-medium text-sm'>Sarah Jenkins</p>
+                      <p class='text-gray-500 text-xs'>Computer Science Major • Attended 2023</p>
                     </div>
                   </div>
-                  <span class="text-gray-500 text-xs">2 days ago</span>
+                  <span class='text-gray-500 text-xs'>2 days ago</span>
                 </div>
-                <div class="flex text-yellow-400 text-sm mb-2">
-                  <span class="material-symbols-outlined star-filled text-[18px]">star</span>
-                  <span class="material-symbols-outlined star-filled text-[18px]">star</span>
-                  <span class="material-symbols-outlined star-filled text-[18px]">star</span>
-                  <span class="material-symbols-outlined star-filled text-[18px]">star</span>
-                  <span class="material-symbols-outlined star-filled text-[18px]">star</span>
-                </div>
-                <p class="text-gray-300 text-sm leading-relaxed">
-                  This was my first hackathon and it was incredible! The mentors were super helpful and I learned so much in just 24 hours. The food was great too!
+                
+                <p class='text-gray-300 text-sm leading-relaxed'>
+              ".
+              $c['comment']. "
                 </p>
               </div>
-                COMMENTAIRE
             </div>
-            <div class="bg-surface-dark rounded-xl p-6 border border-border-dark mt-4 shadow-sm">
+
+
+              ";
+              }
+                           ?>
+                  <div class="bg-surface-dark rounded-xl p-6 border border-border-dark mt-4 shadow-sm">
               <h4 class="text-lg font-bold mb-4 text-white">Leave a Review</h4>
+
               <div class="flex flex-col gap-4">
                 <div>
                   <label class="block text-sm font-medium text-gray-400 mb-2">Your Rating</label>

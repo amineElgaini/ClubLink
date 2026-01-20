@@ -12,5 +12,12 @@ $pdo = Config::getPDO();
         $result = $stmt->fetchAll();
       return $result;
   }
+  public static function newComment(){
+       $stmt = $pdo->prepare(
+            "insert into reviews()"
+        );
+        $stmt->execute(['event_id' => $eventId ]);
+  
+  }
 
 }
