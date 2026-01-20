@@ -1,8 +1,12 @@
 <?php
+require_once __DIR__ . '/../../core/Controller.php';
+require_once __DIR__ . '/../Models/User.php';
 // app/Controllers/ClubController.php
-class ClubController {
+class ClubController extends Controller{
     public function index() {
-        print_r($_SESSION);
+      if ($_SESSION['user']->role == "admin") {
+      $this->view("admin/manage-clubs");
+      }
     }       // show all clubs
     public function show($id) {}    // show single club
     public function store() {}       // create new club (admin)
