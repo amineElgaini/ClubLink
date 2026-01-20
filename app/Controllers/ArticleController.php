@@ -4,10 +4,10 @@ require_once __DIR__ . '/../Models/Article.php';
 // app/Controllers/ArticleController.php
 class ArticleController extends Controller {
   public function show($clubId, $articleId) {
-      //$this->view('student/show-article.blade');
-      Article::getArticle(3);
-  }                 // show article
-    public function comment($clubId, $articleId) {}             // comment on article
-    public function create() {}                                  // show create article form
-    public function store() {}                                   // save new article
+      $result = Article::getArticle(3);
+      $this->view('student/show-article', ['result' => $result]);
+  }             
+    public function comment($clubId, $articleId) {}             
+    public function create() {}                                
+    public function store() {}                                
 }

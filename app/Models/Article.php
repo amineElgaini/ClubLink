@@ -12,7 +12,7 @@ class Article{
         );
         $stmt->execute(["article_id" => $articleId]);
         $result = $stmt->fetch();
-      echo $result['content'];
+      return $result;
 
   }
 
