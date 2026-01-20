@@ -6,9 +6,16 @@ class Logger
 
     public static function error(string $message): void
     {
-        $date = date('Y-m-d H:i:s');
-        $log  = "[{$date}] ERROR: {$message}" . PHP_EOL;
+        $dir = dirname(self::$logFile);
 
-        file_put_contents(self::$logFile, $log, FILE_APPEND);
+        if (!is_dir($dir)) {
+            mkdir($dir, 0775, true);
+        }
+
+        file_put_contents(
+            self::$logFile,
+            '[' . date('Y-m-d H:i:s') . '] ' . $message . PHP_EOL,
+            FILE_APPEND
+        );
     }
 }

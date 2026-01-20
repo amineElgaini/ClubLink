@@ -1,5 +1,6 @@
 <?php
 $envFile = __DIR__ . '/../.env';
+
 if (file_exists($envFile)) {
     $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {
@@ -70,41 +71,41 @@ $router->post('/admin/clubs/{id}/delete', [ClubController::class, 'destroy']); /
 $router->post('/admin/clubs/{clubId}/make-president/{userId}', [AdminController::class, 'makePresident']); // hyphenated for readability
 
 
-// $router->get('/login', [AuthController::class, 'loginPage']);
-// $router->post('/login', [AuthController::class, 'loginAction']);
-// $router->get('/register', [AuthController::class, 'registerPage']);
-// $router->post('/register', [AuthController::class, 'registerAction']);
+$router->get('/login', [AuthController::class, 'loginPage']);
+$router->post('/login', [AuthController::class, 'loginAction']);
+$router->get('/register', [AuthController::class, 'registerPage']);
+$router->post('/register', [AuthController::class, 'registerAction']);
 
 
-// // student routes
-// $router->get('/club', [ClubController::class, 'showClubsPage']);
+// student routes
+$router->get('/club', [ClubController::class, 'showClubsPage']);
 
-// $router->get('/club/{id}', [ClubController::class, 'showClubsPage']);
-// $router->post('/club/{id}', [ClubController::class, 'showClubsPage']);
-
-
-// $router->get('/article/{id}', [ArticleController::class, 'showArticle']);
-// $router->post('/club/{id}/article', [ArticleController::class, 'commentArticle']);
-
-// $router->post('/event/{id}', [EventController::class, 'registerEvent']);
-
-// // president routes
-// $router->get('/event', [EventController::class, 'showEvents']);
-// $router->post('/event/{id}/delete', [EventController::class, 'deleteEvent']);
-// $router->post('/event/{id}/update', [EventController::class, 'updateEvent']);
-
-// $router->get('/article/create', [ArticleController::class, 'createArticle']);
-// $router->post('/article/store', [ArticleController::class, 'storeArticle']);
+$router->get('/club/{id}', [ClubController::class, 'showClubsPage']);
+$router->post('/club/{id}', [ClubController::class, 'showClubsPage']);
 
 
-// $router->get('/admin/users', [AdminController::class, 'users']);
-// $router->post('/admin/users/{id}/delete', [AdminController::class, 'delete']);
-// $router->post('/admin/users/{id}/update', [AdminController::class, 'update']);
-// $router->post('/admin/users/{id}/makePresident', [AdminController::class, 'makePresident']);
+$router->get('/article/{id}', [ArticleController::class, 'showArticle']);
+$router->post('/club/{id}/article', [ArticleController::class, 'commentArticle']);
 
-// $router->get('/admin/clubs', [ClubsController::class, 'clubs']);
-// $router->post('/admin/clubs/{id}/create', [ClubController::class, 'createClub']);
-// $router->post('/admin/clubs/{id}/update', [ClubController::class, 'updateClub']);
-// $router->post('/admin/clubs/{id}delete', [ClubController::class, 'deleteClub']);
+$router->post('/event/{id}', [EventController::class, 'registerEvent']);
+
+// president routes
+$router->get('/event', [EventController::class, 'showEvents']);
+$router->post('/event/{id}/delete', [EventController::class, 'deleteEvent']);
+$router->post('/event/{id}/update', [EventController::class, 'updateEvent']);
+
+$router->get('/article/create', [ArticleController::class, 'createArticle']);
+$router->post('/article/store', [ArticleController::class, 'storeArticle']);
+
+
+$router->get('/admin/users', [AdminController::class, 'index']);
+$router->post('/admin/users/{id}/delete', [AdminController::class, 'delete']);
+$router->post('/admin/users/{id}/update', [AdminController::class, 'update']);
+$router->post('/admin/users/{id}/makePresident', [AdminController::class, 'makePresident']);
+
+$router->get('/admin/clubs', [ClubController::class, 'clubs']);
+$router->post('/admin/clubs/{id}/create', [ClubController::class, 'createClub']);
+$router->post('/admin/clubs/{id}/update', [ClubController::class, 'updateClub']);
+$router->post('/admin/clubs/{id}delete', [ClubController::class, 'deleteClub']);
 
 $router->dispatch();
