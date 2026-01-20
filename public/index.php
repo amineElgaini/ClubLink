@@ -34,6 +34,7 @@ $router->get('/clubs/{id}', [ClubController::class, 'show']); // show club detai
 // Club articles
 $router->get('/clubs/{id}/articles/{articleId}', [ArticleController::class, 'show']); // show article
 $router->post('/clubs/{id}/articles/{articleId}/comments', [ArticleController::class, 'comment']); // post comment
+$router->post('/clubs/{id}/join', [ClubController::class, 'join']); // join a club
 
 // Club events
 $router->post('/events/{id}/register', [EventController::class, 'register']); // register for event

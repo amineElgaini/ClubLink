@@ -9,6 +9,6 @@ class Logger
         $date = date('Y-m-d H:i:s');
         $log  = "[{$date}] ERROR: {$message}" . PHP_EOL;
 
-        file_put_contents(self::$logFile, $log, FILE_APPEND);
+        // file_put_contents(self::$logFile, $log, FILE_APPEND);
     }
 }

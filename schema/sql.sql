@@ -137,9 +137,9 @@ VALUES
 -- Clubs
 INSERT INTO clubs (name, description, president_id)
 VALUES
-('Science Club', 'A club for science enthusiasts', 3),
-('Art Club', 'Explore your creativity with arts', NULL),
-('Sports Club', 'All about sports and fitness', NULL);
+('Science Club', 'A club for science enthusiasts', 2),
+('Art Club', 'Explore your creativity with arts', 1),
+('Sports Club', 'All about sports and fitness', 4);
 
 -- Club Members
 INSERT INTO club_members (club_id, student_id)
