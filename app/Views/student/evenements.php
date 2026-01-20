@@ -65,15 +65,15 @@
               <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
             </svg>
           </div>
-            <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]"> club
-              </h2>
+          <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]"> club
+          </h2>
         </div>
 
       </div>
       <div class="flex items-center gap-4 md:gap-8">
         <label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
         </label>
-         <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 ring-2 ring-border-dark shadow-sm cursor-pointer" data-alt="User profile avatar showing a smiling student" style='background-image: url();'></div>
+        <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 ring-2 ring-border-dark shadow-sm cursor-pointer" data-alt="User profile avatar showing a smiling student" style='background-image: url();'></div>
       </div>
     </div>
   </header>
@@ -119,18 +119,18 @@
             </h3>
             <div class="prose prose-invert text-gray-300 leading-relaxed space-y-4 max-w-none">
               <p>
-<?=$result['description']?> 
+                <?= $result['description'] ?>
               </p>
             </div>
           </div>
-<div class="bg-surface-dark p-6 rounded-xl border border-border-dark shadow-sm">
+          <div class="bg-surface-dark p-6 rounded-xl border border-border-dark shadow-sm">
             <h3 class="text-xl font-bold mb-4 flex items-center gap-2 text-white">
               <span class="material-symbols-outlined text-primary">info</span>
               Articles
             </h3>
             <div class="prose prose-invert text-gray-300 leading-relaxed space-y-4 max-w-none">
               <p>
-<?=$result['content']?> 
+                <?= $result['content'] ?>
               </p>
             </div>
           </div>
@@ -142,8 +142,8 @@
             </div>
             <div class="bg-surface-dark border border-border-dark rounded-xl p-6 flex flex-col md:flex-row gap-8 items-center md:items-start shadow-sm">
               <div class="flex flex-col items-center justify-center text-center min-w-[140px]">
-<span class="text-5xl font-black text-white"><?= $result['rating'] ?></span>
-                
+                <span class="text-5xl font-black text-white"><?= $result['rating'] ?></span>
+
                 <span class="text-sm text-gray-400">Based on 124 reviews</span>
               </div>
               <div class="flex-1 w-full space-y-2">
@@ -184,8 +184,8 @@
                 </div>
               </div>
             </div>
-              <?php
-              foreach($comment as $c){
+            <?php
+            foreach ($comment as $c) {
               echo "
               <div class='flex flex-col gap-4'>
               <div class='bg-surface-dark rounded-lg p-4 border border-border-dark shadow-sm'>
@@ -193,33 +193,34 @@
                   <div class='flex items-center gap-3'>
                     <div class='bg-center bg-no-repeat bg-cover rounded-full size-10' data-alt='Profile picture of Sarah J.' style='background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA7jhfEBU2TQFbhhAOcMRS_NgcdTxbP_Qtv4JEqxcs1viL2rpBE0ePPN5GcGTUUQLONHWYPM6PeLiBngsNxv0oPcC-5VbUnabLJR9NJ_h8UjM5-ArdatD2y8so_U9fBtc3NukPXxlctky99_oJTg2bjgev_NQUFrignKboToFyLYGnIpwhVl45qu7lzawWtdmHcH71EkJYgOye23TzQJwTXgMCg6_ZOQWun3qSJstbtmut5hDB9Lbff83291C47u95BkJDH74SVTMM');'></div>
                     <div>
-                      <p class='text-white font-medium text-sm'>".$c['first_name']." ". $c['last_name']."</p>
+                      <p class='text-white font-medium text-sm'>" . $c['first_name'] . " " . $c['last_name'] . "</p>
                     </div>
                   </div>
                 </div>
-                <p class='text-gray-300 text-sm leading-relaxed'>".$c['comment']. "</p>
+                <p class='text-gray-300 text-sm leading-relaxed'>" . $c['comment'] . "</p>
               </div>
             </div>
               ";
-              }
-                           ?>
-                  <div class="bg-surface-dark rounded-xl p-6 border border-border-dark mt-4 shadow-sm">
+            }
+            ?>
+            <div class="bg-surface-dark rounded-xl p-6 border border-border-dark mt-4 shadow-sm">
               <h4 class="text-lg font-bold mb-4 text-white">Leave a Review</h4>
 
-              <form action = 'comments' class="flex flex-col gap-4">
+              <form action='./comments' method="POST" class="flex flex-col gap-4">
                 <div>
                   <label class="block text-sm font-medium text-gray-400 mb-2">Your Rating</label>
+                    <input value ="3" name = "rating"/>
                   <div class="flex gap-1 text-gray-500 cursor-pointer">
-                    <span class="material-symbols-outlined text-3xl hover:text-yellow-400 transition-colors">star</span>
-                    <span class="material-symbols-outlined text-3xl hover:text-yellow-400 transition-colors">star</span>
-                    <span class="material-symbols-outlined text-3xl hover:text-yellow-400 transition-colors">star</span>
-                    <span class="material-symbols-outlined text-3xl hover:text-yellow-400 transition-colors">star</span>
-                    <span class="material-symbols-outlined text-3xl hover:text-yellow-400 transition-colors">star</span>
+                    <span value='1' name = '' class="material-symbols-outlined text-3xl hover:text-yellow-400 transition-colors">star</span>
+                    <span value='2' class="material-symbols-outlined text-3xl hover:text-yellow-400 transition-colors">star</span>
+                    <span value='3' class="material-symbols-outlined text-3xl hover:text-yellow-400 transition-colors">star</span>
+                    <span value='4' class="material-symbols-outlined text-3xl hover:text-yellow-400 transition-colors">star</span>
+                    <span value='5' class="material-symbols-outlined text-3xl hover:text-yellow-400 transition-colors">star</span>
                   </div>
                 </div>
                 <div>
                   <label class="block text-sm font-medium text-gray-400 mb-2">Your Review</label>
-                  <textarea class="w-full rounded-lg bg-background-dark border-border-dark p-4 text-white placeholder:text-gray-500 focus:ring-2 focus:ring-primary h-32 resize-none" placeholder="Share your experience with us..."></textarea>
+                  <textarea name="review" class="w-full rounded-lg bg-background-dark border-border-dark p-4 text-white placeholder:text-gray-500 focus:ring-2 focus:ring-primary h-32 resize-none" placeholder="Share your experience with us..."></textarea>
                 </div>
                 <div class="flex justify-end">
                   <button class="bg-primary/10 hover:bg-primary/20 text-primary font-bold py-2 px-6 rounded-lg transition-colors border border-primary/20">
