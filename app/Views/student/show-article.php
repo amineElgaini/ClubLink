@@ -65,16 +65,15 @@
               <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
             </svg>
           </div>
-            <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]"><?= 
-              $result['content'];
-              ?></h2>
+            <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]"> club
+              </h2>
         </div>
 
       </div>
       <div class="flex items-center gap-4 md:gap-8">
         <label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
         </label>
-        <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 ring-2 ring-border-dark shadow-sm cursor-pointer" data-alt="User profile avatar showing a smiling student" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBQyVZfX6unICrGYYvRO2ONWz6DrUFT_KcvoQB1zS_rmzKXaCiYToeIsQ5JtBWZ9R4yOmCJ4BtFMxcpmon2SxLyBQ7qerLyVNJiw6l3t3Yai_yrHa9gdUoS3deWvG1E34ihYAOLRFWDFRkQFCZt7HSz4a846QENh5pBE-cyWLLczRG_oML2xv9KEph_zcKursq4s_FT7ZWwnrw3-1_5ZHdrQ8RdtvV5VQSzAtJYuq2pFCtTWUziGak4TvaqgeyCeuEjKHaIWOyMon0");'></div>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 ring-2 ring-border-dark shadow-sm cursor-pointer" data-alt="User profile avatar showing a smiling student" style='background-image: url();'></div>
       </div>
     </div>
   </header>
@@ -82,7 +81,7 @@
     <div class="flex flex-col max-w-[1100px] flex-1 gap-8">
       <section class="flex flex-col gap-6">
         <div class="w-full h-64 md:h-96 rounded-2xl overflow-hidden shadow-lg shadow-black/20 relative group border border-border-dark">
-          <div class="w-full h-full bg-center bg-no-repeat bg-cover transform transition-transform duration-700 group-hover:scale-105" data-alt="Students collaborating on laptops during a hackathon event" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEHHDhoXNIFyC5PlZcxfPJ26T8P_Z-U3by7BTMw3v7p6GdCc7uK5799UfaO29iHMZwoTI6IVzCX8X7kix6QHb7zhuLq9CLFKk_78z1Z56fULw3yr6x4SYrqn0bZg3-_lctjIlCYlVpMmXwowFoUkS83fw86J9WsUPVk1i8qXXpiSfyBdBDQAGsn2-Ly_vyG9aajN11VHsYW8xym4ICVxDnUt3loOGHQ2_4d5NXINJCsFkiO0VgxwrVimM_LDthenz3Hfz5qdlwjbk");'></div>
+          <div class="w-full h-full bg-center bg-no-repeat bg-cover transform transition-transform duration-700 group-hover:scale-105" data-alt="Students collaborating on laptops during a hackathon event" style='background-image: url(<?= $result['image_url'] ?>);'></div>
           <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent opacity-80"></div>
           <div class="absolute bottom-4 left-4 md:bottom-6 md:left-6 flex gap-2">
             <span class="px-3 py-1 bg-surface-dark/90 text-xs font-bold uppercase tracking-wider rounded-md backdrop-blur-sm shadow-sm text-primary border border-border-dark">Technology</span>
@@ -182,21 +181,13 @@
                   <div class='flex items-center gap-3'>
                     <div class='bg-center bg-no-repeat bg-cover rounded-full size-10' data-alt='Profile picture of Sarah J.' style='background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA7jhfEBU2TQFbhhAOcMRS_NgcdTxbP_Qtv4JEqxcs1viL2rpBE0ePPN5GcGTUUQLONHWYPM6PeLiBngsNxv0oPcC-5VbUnabLJR9NJ_h8UjM5-ArdatD2y8so_U9fBtc3NukPXxlctky99_oJTg2bjgev_NQUFrignKboToFyLYGnIpwhVl45qu7lzawWtdmHcH71EkJYgOye23TzQJwTXgMCg6_ZOQWun3qSJstbtmut5hDB9Lbff83291C47u95BkJDH74SVTMM');'></div>
                     <div>
-                      <p class='text-white font-medium text-sm'>Sarah Jenkins</p>
-                      <p class='text-gray-500 text-xs'>Computer Science Major • Attended 2023</p>
+                      <p class='text-white font-medium text-sm'>".$c['first_name']." ". $c['last_name']."</p>
                     </div>
                   </div>
-                  <span class='text-gray-500 text-xs'>2 days ago</span>
                 </div>
-                
-                <p class='text-gray-300 text-sm leading-relaxed'>
-              ".
-              $c['comment']. "
-                </p>
+                <p class='text-gray-300 text-sm leading-relaxed'>".$c['comment']. "</p>
               </div>
             </div>
-
-
               ";
               }
                            ?>

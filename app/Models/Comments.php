@@ -6,7 +6,7 @@ class Comments{
 $pdo = Config::getPDO();
 
         $stmt = $pdo->prepare(
-            "select * from reviews where event_id = :event_id"
+            "select * from reviews left join students on students.id = reviews.student_id where event_id = :event_id"
         );
         $stmt->execute(['event_id' => $eventId ]);
         $result = $stmt->fetchAll();
