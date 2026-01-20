@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
@@ -48,20 +49,10 @@
 </div>
 <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">UniEvents</h2>
 </div>
-<nav class="hidden md:flex items-center gap-9">
-<a class="text-gray-300 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Events</a>
-<a class="text-gray-300 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Clubs</a>
-<a class="text-gray-300 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Profile</a>
-</nav>
+
 </div>
 <div class="flex items-center gap-4 md:gap-8">
 <label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
-<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
-<div class="text-gray-400 flex border-none bg-background-dark items-center justify-center pl-4 rounded-l-lg border-r-0">
-<span class="material-symbols-outlined text-[24px]">search</span>
-</div>
-<input class="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-background-dark h-full placeholder:text-gray-500 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search events..." value=""/>
-</div>
 </label>
 <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 ring-2 ring-border-dark shadow-sm cursor-pointer" data-alt="User profile avatar showing a smiling student" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBQyVZfX6unICrGYYvRO2ONWz6DrUFT_KcvoQB1zS_rmzKXaCiYToeIsQ5JtBWZ9R4yOmCJ4BtFMxcpmon2SxLyBQ7qerLyVNJiw6l3t3Yai_yrHa9gdUoS3deWvG1E34ihYAOLRFWDFRkQFCZt7HSz4a846QENh5pBE-cyWLLczRG_oML2xv9KEph_zcKursq4s_FT7ZWwnrw3-1_5ZHdrQ8RdtvV5VQSzAtJYuq2pFCtTWUziGak4TvaqgeyCeuEjKHaIWOyMon0");'></div>
 </div>
@@ -253,77 +244,9 @@
 </div>
 </div>
 </div>
-<div class="lg:col-span-1 flex flex-col gap-6 h-fit sticky top-24">
-<div class="bg-surface-dark rounded-xl border border-border-dark overflow-hidden shadow-sm">
-<div class="bg-primary/10 p-4 border-b border-border-dark">
-<h4 class="font-bold text-white text-sm uppercase tracking-wide">Organized By</h4>
-</div>
-<div class="p-5 flex items-center gap-4">
-<div class="bg-center bg-no-repeat bg-cover rounded-full size-14 shrink-0 ring-2 ring-gray-600" data-alt="Computer Science Society logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA1Wcuv8JLaFYJC540kUV_YKc1YBFoaI-yJtewMKj8Ua2yD6GFoPAxbbhR8NdYER_3_mmHMdskoVCF0QZo39HcavDhKuPXBPhJ18jlFbFyXUtL4ft7xvN91h4Jl-dfv4d52tVcaYgeJ06KTxXBRFRLEPoIrNhtLb6HoORyMhusONg2EL99k3rtgy568FIGF52Jh24qPxPTuHAnq4cXAYqONqcX_OwacL7KR2gKYIQDjveR1-bFPIi05fuqu6QJtxAgiR8guU1PluC0");'></div>
-<div class="flex flex-col">
-<p class="text-white text-lg font-bold line-clamp-1">CS Society</p>
-<p class="text-gray-400 text-sm line-clamp-1">Since 2015</p>
-</div>
-</div>
-<div class="px-5 pb-5">
-<button class="w-full text-center py-2 rounded-lg border border-border-dark hover:bg-background-dark text-gray-200 text-sm font-medium transition-colors">View Club Profile</button>
-</div>
-</div>
-<div class="bg-surface-dark rounded-xl border border-border-dark overflow-hidden shadow-sm">
-<div class="bg-primary/10 p-4 border-b border-border-dark">
-<h4 class="font-bold text-white text-sm uppercase tracking-wide">Location</h4>
-</div>
-<div class="w-full h-48 bg-background-dark relative group cursor-pointer">
-<div class="w-full h-full bg-cover bg-center opacity-40 mix-blend-luminosity" data-alt="Map view of Student Union location" data-location="University Campus Map" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCBy_5y-v9aQqVpZnq4sby6obwVE85Km0gks8hoT1jhsTbWxKiH5b5Lh89tTO-hCfW3lki3_pZVQXAXJpDqaZwvVaoiWbF_5oSOJ5esNPyOJvJQwGrF6DcsyBKxJ6a3DoknqgOCVo9R_LHKxSXGKeDlW_A4MbaQM8jpeDEP9Jf8Nj4y4SUVNlv9tbaGbycT71Yrq-Fj6n2b0wXzEhR3QzcDLQ7mz88S1YS4xKdF8tL01XaU94jRFj8y2My_lC-Hxhs12jK2jqcXkww');"></div>
-<div class="absolute inset-0 flex items-center justify-center">
-<div class="bg-surface-dark p-3 rounded-full shadow-lg text-primary transform group-hover:-translate-y-1 transition-transform border border-border-dark">
-<span class="material-symbols-outlined text-3xl">location_on</span>
-</div>
-</div>
-</div>
-<div class="p-4">
-<p class="font-medium text-white">Student Union, Hall B</p>
-<p class="text-sm text-gray-400 mt-1">123 University Ave, Campus Center</p>
-<a class="block mt-3 text-primary text-sm font-medium hover:underline" href="#">Get Directions</a>
-</div>
-</div>
-<div class="bg-surface-dark rounded-xl border border-border-dark p-5 shadow-sm flex flex-col gap-4">
-<div class="flex justify-between items-center pb-4 border-b border-border-dark">
-<span class="text-gray-400 text-sm">Capacity</span>
-<span class="font-medium text-white">200 Students</span>
-</div>
-<div class="flex justify-between items-center pb-4 border-b border-border-dark">
-<span class="text-gray-400 text-sm">Price</span>
-<span class="font-medium text-white">Free</span>
-</div>
-<div class="flex justify-between items-center">
-<span class="text-gray-400 text-sm">Registration closes</span>
-<span class="font-medium text-red-400">In 2 days</span>
-</div>
-</div>
-</div>
 </div>
 </div>
 </main>
-<footer class="border-t border-border-dark py-8 mt-12 bg-surface-dark">
-<div class="max-w-[1100px] mx-auto px-4 md:px-10 flex flex-col md:flex-row justify-between items-center gap-4">
-<div class="flex items-center gap-2 text-white">
-<div class="size-6 text-primary">
-<svg class="w-full h-full" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
-</svg>
-</div>
-<span class="font-bold text-lg">UniEvents</span>
-</div>
-<div class="text-gray-500 text-sm">
-                © 2024 UniEvents Inc. All rights reserved.
-            </div>
-<div class="flex gap-6">
-<a class="text-gray-400 hover:text-primary transition-colors" href="#">Privacy</a>
-<a class="text-gray-400 hover:text-primary transition-colors" href="#">Terms</a>
-<a class="text-gray-400 hover:text-primary transition-colors" href="#">Support</a>
-</div>
-</div>
-</footer>
+
 
 </body></html>
