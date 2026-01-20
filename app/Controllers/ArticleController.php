@@ -18,7 +18,7 @@ class ArticleController extends Controller
     $this->view('student/evenements', ['result' =>  $result, 'comment' => $comments]);
   }
   //ajouter comments
-  public function comment($id)
+  public function comments($id)
   {
     //to get event id
     $result = Article::getArticle($id);

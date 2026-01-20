@@ -77,7 +77,7 @@
       </div>
     </div>
   </header>
-  <main class="flex flex-1 justify-center py-8 px-4 md:px-6">
+  <main class=" bg-background-dark flex flex-1 justify-center py-8 px-4 md:px-6">
     <div class="flex flex-col max-w-[1100px] flex-1 gap-8">
       <section class="flex flex-col gap-6">
         <div class="w-full h-64 md:h-96 rounded-2xl overflow-hidden shadow-lg shadow-black/20 relative group border border-border-dark">
@@ -90,16 +90,10 @@
         </div>
         <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 border-b border-border-dark pb-6">
           <div class="flex flex-col gap-3 flex-1">
-            <h1 class="text-white text-3xl md:text-5xl font-black leading-tight tracking-[-0.033em]">Annual Tech Hackathon 2024</h1>
+              <h1 class="text-white text-3xl md:text-5xl font-black leading-tight tracking-[-0.033em]"><?= $result['title'] ?></h1>
             <div class="flex flex-wrap items-center gap-y-2 gap-x-6 text-gray-400 mt-2">
-              <div class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary">calendar_month</span>
-                <span class="text-sm font-medium">Oct 24, 2024 • 10:00 AM</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary">location_on</span>
-                <span class="text-sm font-medium">Student Union Hall B</span>
-              </div>
+              
+              
             </div>
           </div>
           <div class="flex shrink-0 w-full lg:w-auto">
@@ -208,15 +202,9 @@
 
               <form action='./comments' method="POST" class="flex flex-col gap-4">
                 <div>
-                  <label class="block text-sm font-medium text-gray-400 mb-2">Your Rating</label>
-                    <input value ="3" name = "rating"/>
-                  <div class="flex gap-1 text-gray-500 cursor-pointer">
-                    <span value='1' name = '' class="material-symbols-outlined text-3xl hover:text-yellow-400 transition-colors">star</span>
-                    <span value='2' class="material-symbols-outlined text-3xl hover:text-yellow-400 transition-colors">star</span>
-                    <span value='3' class="material-symbols-outlined text-3xl hover:text-yellow-400 transition-colors">star</span>
-                    <span value='4' class="material-symbols-outlined text-3xl hover:text-yellow-400 transition-colors">star</span>
-                    <span value='5' class="material-symbols-outlined text-3xl hover:text-yellow-400 transition-colors">star</span>
-                  </div>
+                  <label class="block text-sm font-medium text-gray-400 mb-2">Your Rating (1 out of 5)</label>
+                    <input class="text-primary" type="range" min="1" max="5" value ="" name = "rating"/>
+                  
                 </div>
                 <div>
                   <label class="block text-sm font-medium text-gray-400 mb-2">Your Review</label>
