@@ -1,10 +1,11 @@
 <?php
 require_once __DIR__ . '/../../core/Controller.php';
-require_once __DIR__ . '/../Models/User.php';
+require_once __DIR__ . '/../Models/Article.php';
 // app/Controllers/ArticleController.php
 class ArticleController extends Controller {
   public function show($clubId, $articleId) {
-      $this->view('student/show-article.blade');
+      //$this->view('student/show-article.blade');
+      Article::getArticle(3);
   }                 // show article
     public function comment($clubId, $articleId) {}             // comment on article
     public function create() {}                                  // show create article form
