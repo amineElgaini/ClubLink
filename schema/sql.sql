@@ -103,7 +103,6 @@ CREATE TABLE reviews (
 );
 
 
-
 CREATE TABLE articles (
     id SERIAL PRIMARY KEY,
     club_id INT NOT NULL,

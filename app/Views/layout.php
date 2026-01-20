@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title><?= $title ?? 'Club Platform' ?></title>
@@ -36,10 +37,11 @@
             background: #fff;
             padding: 25px;
             border-radius: 6px;
-            box-shadow: 0 0 10px rgba(0,0,0,.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
         }
 
-        input, button {
+        input,
+        button {
             width: 100%;
             padding: 10px;
             margin-top: 10px;
@@ -52,6 +54,13 @@
             cursor: pointer;
         }
 
+        .success {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
         .error {
             background: #fee2e2;
             color: #991b1b;
@@ -59,42 +68,59 @@
             margin-bottom: 10px;
         }
 
+
         .link {
             margin-top: 10px;
             text-align: center;
         }
     </style>
 </head>
+
 <body>
 
-<!-- Simple Navbar -->
-<nav>
-    <div class="nav-left">
-        <a href="./clubs">Clubs</a>
-        <a href="./events">Events</a>
-    </div>
-    <div class="nav-right">
-        <?php if (!empty($_SESSION['user'])): ?>
-            Hello, <?= htmlspecialchars($_SESSION['user']->fullName()) ?>
-            <a href="./logout">Logout</a>
-        <?php else: ?>
-            <a href="./login">Login</a>
-            <a href="./register">Register</a>
-        <?php endif; ?>
-    </div>
-</nav>
+    <!-- Simple Navbar -->
+    <nav>
+        <div class="nav-left">
+            <a href="<?= url('clubs') ?>">Clubs</a>
+            <a href="<?= url('events') ?>">Events</a>
 
-<div class="container">
-
-    <?php if (!empty($_SESSION['error'])): ?>
-        <div class="error">
-            <?= $_SESSION['error']; unset($_SESSION['error']); ?>
+            <?php if (!empty($_SESSION['user']) && $_SESSION['user']->isAdmin()): ?>
+                <a href="<?= url('admin/users') ?>">Manage Users</a>
+            <?php endif; ?>
         </div>
-    <?php endif; ?>
 
-    <?php require $viewFile; ?>
+        <div class="nav-right">
+            <?php if (!empty($_SESSION['user'])): ?>
+                Hello, <?= htmlspecialchars($_SESSION['user']->fullName()) ?>
+                <a href="<?= url('logout') ?>">Logout</a>
+            <?php else: ?>
+                <a href="<?= url('login') ?>">Login</a>
+                <a href="<?= url('register') ?>">Register</a>
+            <?php endif; ?>
+        </div>
+    </nav>
 
-</div>
+
+    <div class="container">
+
+        <?php if (!empty($_SESSION['success'])): ?>
+            <div class="success">
+                <?= $_SESSION['success'];
+                unset($_SESSION['success']); ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if (!empty($_SESSION['error'])): ?>
+            <div class="error">
+                <?= $_SESSION['error'];
+                unset($_SESSION['error']); ?>
+            </div>
+        <?php endif; ?>
+
+        <?php require $viewFile; ?>
+
+    </div>
 
 </body>
+
 </html>

@@ -8,11 +8,19 @@ if (file_exists($envFile)) {
         $_ENV[trim($key)] = trim($value);
     }
 }
+define('BASE_URL', '/');
+function url(string $path = ''): string
+{
+    $base = rtrim(BASE_URL, '/');
+    $path = ltrim($path, '/');
+    return $base . '/' . $path;
+}
 
 require_once __DIR__ . '/../core/Logger.php';
 require_once __DIR__ . '/../core/AppException.php';
 require_once __DIR__ . '/../core/ErrorHandler.php';
 require_once __DIR__ . '/../app/Models/User.php';
+require_once __DIR__ . '/../core/Controller.php';
 
 session_start();
 ErrorHandler::register();
@@ -53,13 +61,13 @@ $router->post('/articles', [ArticleController::class, 'store']); // RESTful stor
 $router->get('/admin/users', [AdminController::class, 'index']);
 $router->post('/admin/users/{id}/delete', [AdminController::class, 'destroy']);
 $router->post('/admin/users/{id}/update', [AdminController::class, 'update']);
-$router->post('/admin/users/{id}/make-president', [AdminController::class, 'makePresident']); // hyphenated for readability
 
 // Clubs
 $router->get('/admin/clubs', [ClubController::class, 'index']);
 $router->post('/admin/clubs', [ClubController::class, 'store']); // create new
 $router->post('/admin/clubs/{id}/update', [ClubController::class, 'update']);
 $router->post('/admin/clubs/{id}/delete', [ClubController::class, 'destroy']); // fixed missing slash
+$router->post('/admin/clubs/{clubId}/make-president/{userId}', [AdminController::class, 'makePresident']); // hyphenated for readability
 
 
 // $router->get('/login', [AuthController::class, 'loginPage']);

@@ -84,7 +84,7 @@ class User
         return new User($stmt->fetch());
     }
 
-        public static function logout(): void
+    public static function logout(): void
     {
         // Remove user_id from session
         unset($_SESSION['user_id']);
