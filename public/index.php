@@ -35,11 +35,17 @@ $router->get('/clubs', [ClubController::class, 'index']); // show all clubs
 $router->get('/clubs/{id}', [ClubController::class, 'show']); // show club details
 
 // Club articles
-// $router->get('/clubs/{id}/articles/{articleId}', [ArticleController::class, 'show']); // show article
-// $router->post('/clubs/{id}/articles/{articleId}/comments', [ArticleController::class, 'comment']); // post comment
+$router->get('/clubs/{id}/articles/{articleId}', [ArticleController::class, 'show']); // show article
+$router->post('/clubs/{id}/articles/{articleId}/comments', [ArticleController::class, 'comment']); // post comment
 
-// // Club events
-// $router->post('/events/{id}/register', [EventController::class, 'register']); // register for event
+// Club events
+$router->post('/events/{id}/register', [EventController::class, 'register']); // register for event
+
+// club admin
+$router->get('/admin/clubs', [ClubController::class, 'index']);
+$router->post('/admin/clubs', [ClubController::class, 'store']); // create new
+$router->post('/admin/clubs/{id}/update', [ClubController::class, 'update']);
+$router->post('/admin/clubs/{id}/delete', [ClubController::class, 'destroy']); // fixed missing slash
 
 // // Events
 // $router->get('/events', [EventController::class, 'index']); // list events
@@ -57,47 +63,6 @@ $router->get('/clubs/{id}', [ClubController::class, 'show']); // show club detai
 // $router->post('/admin/users/{id}/make-president', [AdminController::class, 'makePresident']); // hyphenated for readability
 
 // // Clubs
-// $router->get('/admin/clubs', [ClubController::class, 'index']);
-// $router->post('/admin/clubs', [ClubController::class, 'store']); // create new
-// $router->post('/admin/clubs/{id}/update', [ClubController::class, 'update']);
-// $router->post('/admin/clubs/{id}/delete', [ClubController::class, 'destroy']); // fixed missing slash
 
-
-// $router->get('/login', [AuthController::class, 'loginPage']);
-// $router->post('/login', [AuthController::class, 'loginAction']);
-// $router->get('/register', [AuthController::class, 'registerPage']);
-// $router->post('/register', [AuthController::class, 'registerAction']);
-
-
-// // student routes
-// $router->get('/club', [ClubController::class, 'showClubsPage']);
-
-// $router->get('/club/{id}', [ClubController::class, 'showClubsPage']);
-// $router->post('/club/{id}', [ClubController::class, 'showClubsPage']);
-
-
-// $router->get('/article/{id}', [ArticleController::class, 'showArticle']);
-// $router->post('/club/{id}/article', [ArticleController::class, 'commentArticle']);
-
-// $router->post('/event/{id}', [EventController::class, 'registerEvent']);
-
-// // president routes
-// $router->get('/event', [EventController::class, 'showEvents']);
-// $router->post('/event/{id}/delete', [EventController::class, 'deleteEvent']);
-// $router->post('/event/{id}/update', [EventController::class, 'updateEvent']);
-
-// $router->get('/article/create', [ArticleController::class, 'createArticle']);
-// $router->post('/article/store', [ArticleController::class, 'storeArticle']);
-
-
-// $router->get('/admin/users', [AdminController::class, 'users']);
-// $router->post('/admin/users/{id}/delete', [AdminController::class, 'delete']);
-// $router->post('/admin/users/{id}/update', [AdminController::class, 'update']);
-// $router->post('/admin/users/{id}/makePresident', [AdminController::class, 'makePresident']);
-
-// $router->get('/admin/clubs', [ClubsController::class, 'clubs']);
-// $router->post('/admin/clubs/{id}/create', [ClubController::class, 'createClub']);
-// $router->post('/admin/clubs/{id}/update', [ClubController::class, 'updateClub']);
-// $router->post('/admin/clubs/{id}delete', [ClubController::class, 'deleteClub']);
 
 $router->dispatch();
