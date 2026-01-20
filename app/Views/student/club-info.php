@@ -211,25 +211,30 @@ error_reporting(E_ALL);
                 <!-- Past Events -->
                 <div class="bg-card-lighter rounded-xl p-5 border border-white/5">
                     <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">Past Events</h3>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Events</h3>
                     </div>
 
                     <div class="flex flex-col gap-4">
-                    <?php foreach ($pastEvents as $ev): ?>
-                        <div class="flex gap-4 items-start">
-                        <div class="flex flex-col items-center justify-center bg-background-dark rounded w-12 h-12 border border-white/10 shrink-0">
-                            <span class="text-[10px] font-bold text-primary uppercase"><?= htmlspecialchars($ev['month']) ?></span>
-                            <span class="text-lg font-bold text-white leading-none"><?= htmlspecialchars($ev['day']) ?></span>
-                        </div>
-                        <div>
-                            <h4 class="text-slate-900 dark:text-white font-semibold text-sm"><?= htmlspecialchars($ev['title']) ?></h4>
-                            <p class="text-xs text-slate-500 dark:text-[#9cabba] mt-1 line-clamp-2"><?= htmlspecialchars($ev['description']) ?></p>
-                        </div>
-                        </div>
-                    <?php endforeach; ?>
-                    <?php if (empty($pastEvents)): ?>
-                        <p class="text-sm text-slate-500 dark:text-[#9cabba]">No past events yet.</p>
-                    <?php endif; ?>
+                        <?php foreach ($pastEvents as $ev): ?>
+                            <a href="/ClubLink/clubs/events/<?= (int)$ev['id'] ?>" class="flex gap-4 items-start group">
+                                <div class="flex flex-col items-center justify-center bg-background-dark rounded w-12 h-12 border border-white/10 shrink-0">
+                                <span class="text-[10px] font-bold text-primary uppercase"><?= htmlspecialchars($ev['month']) ?></span>
+                                <span class="text-lg font-bold text-white leading-none"><?= htmlspecialchars($ev['day']) ?></span>
+                                </div>
+
+                                <div>
+                                <h4 class="text-slate-900 dark:text-white font-semibold text-sm group-hover:text-primary transition-colors">
+                                    <?= htmlspecialchars($ev['title']) ?>
+                                </h4>
+                                <p class="text-xs text-slate-500 dark:text-[#9cabba] mt-1 line-clamp-2">
+                                    <?= htmlspecialchars($ev['description']) ?>
+                                </p>
+                                </div>
+                            </a>
+                        <?php endforeach; ?>
+                        <?php if (empty($pastEvents)): ?>
+                            <p class="text-sm text-slate-500 dark:text-[#9cabba]">No events yet.</p>
+                        <?php endif; ?>
                     </div>
                 </div>
 
@@ -242,9 +247,10 @@ error_reporting(E_ALL);
                     <div class="flex flex-col gap-4">
                     <?php foreach ($recentArticles as $a): ?>
                         <div class="flex gap-3 items-center">
-                        <div class="h-16 w-20 shrink-0 rounded bg-cover bg-center"
-                            style='background-image: url("<?= htmlspecialchars($a['image_url'] ?? "https://picsum.photos/200") ?>");'></div>
-                        <div>
+                        <div class="cursor-pointer h-16 w-20 shrink-0 rounded bg-cover bg-center"
+                            style='background-image: url("<?= htmlspecialchars($a['image_url'] ?? "https://picsum.photos/200") ?>");'>
+                        </div>
+                        <div class="cursor-pointer">
                             <h4 class="text-slate-900 dark:text-white font-bold text-sm"><?= htmlspecialchars($a['title']) ?></h4>
                             <p class="text-xs text-slate-500 dark:text-[#9cabba]"><?= htmlspecialchars($a['date_text']) ?></p>
                         </div>
