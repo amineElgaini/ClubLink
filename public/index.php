@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 $envFile = __DIR__ . '/../.env';
 if (file_exists($envFile)) {
     $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -9,13 +12,31 @@ if (file_exists($envFile)) {
     }
 }
 
+define('BASE_URL', '/ClubLink');
+function url(string $path = ''): string
+{
+    $base = rtrim(BASE_URL, '/');
+    $path = ltrim($path, '/');
+    return $base . '/' . $path;
+}
+
+
+
 require_once __DIR__ . '/../core/Logger.php';
 require_once __DIR__ . '/../core/AppException.php';
 require_once __DIR__ . '/../core/ErrorHandler.php';
 require_once __DIR__ . '/../app/Models/User.php';
+require_once __DIR__ . '/../core/Controller.php';
+
+
 
 session_start();
 ErrorHandler::register();
+
+// $_SESSION['user'] = [
+//     'id' => 3,
+//     'role' => 'student'
+// ];
 
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../core/Router.php';
@@ -23,27 +44,37 @@ require_once __DIR__ . '/../core/Router.php';
 $router = new Router();
 $router->setBasePath('ClubLink');
 
+//Auth
 $router->get('/login', [AuthController::class, 'loginPage']);
 $router->post('/login', [AuthController::class, 'loginAction']);
 $router->get('/register', [AuthController::class, 'registerPage']);
 $router->post('/register', [AuthController::class, 'registerAction']);
 $router->get('/logout', [AuthController::class, 'logout']);
 
-// Clubs
-$router->get('/clubs', [ClubController::class, 'index']); // show all clubs
-$router->get('/clubs/{id}', [ClubController::class, 'show']); // show club details
+// Club Page
+$router->get('/clubs', [ClubController::class, 'index']);
+$router->get('/clubs/{id}', [ClubController::class, 'show']);
+$router->post('/clubs/{id}/join', [ClubController::class, 'join']);
+
+
+// Event Detail
+$router->get('/clubs/event/{id}', [ClubController::class, 'show']);
+$router->post('/clubs/event/{id}/comment', [ArticleController::class, 'comment']);
+$router->post('/clubs/event/{id}/register', [EventController::class, 'register']);
+
 
 // Club articles
 $router->get('/clubs/{id}/articles/{articleId}', [ArticleController::class, 'show']); // show article
 $router->post('/clubs/{id}/articles/{articleId}/comments', [ArticleController::class, 'comment']); // post comment
 
 // Club events
-$router->post('/events/{id}/register', [EventController::class, 'register']); // register for event
+$router->post('/events/register', [EventController::class, 'register']); // register for event
 
 // Events
-$router->get('/events', [EventController::class, 'index']); // list events
-$router->post('/events/{id}/delete', [EventController::class, 'destroy']); // delete event
-$router->post('/events/{id}/update', [EventController::class, 'update']); // update event
+$router->get('/president/events', [EventController::class, 'index']); // list events
+$router->post('/president/events/{id}/delete', [EventController::class, 'destroy']); // delete event
+$router->post('president/events/{id}/update', [EventController::class, 'update']); // update event
+
 
 // Articles
 $router->get('/articles/create', [ArticleController::class, 'create']);
@@ -100,3 +131,5 @@ $router->post('/admin/clubs/{id}/delete', [ClubController::class, 'destroy']); /
 // $router->post('/admin/clubs/{id}delete', [ClubController::class, 'deleteClub']);
 
 $router->dispatch();
+
+
