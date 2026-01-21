@@ -17,5 +17,6 @@ class Logger
             '[' . date('Y-m-d H:i:s') . '] ' . $message . PHP_EOL,
             FILE_APPEND
         );
+        // file_put_contents(self::$logFile, $log, FILE_APPEND);
     }
 }

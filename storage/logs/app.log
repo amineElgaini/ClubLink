@@ -1,0 +1,1 @@
+[2026-01-21 08:59:48] call_user_func_array(): Argument #1 ($callback) must be a valid callback, class EventController does not have a method "show" in /var/www/html/core/Router.php:72
