@@ -57,6 +57,24 @@ class Club
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    /**
+     * Make a student president of a club
+     */
+    public static function makePresident($clubId, $studentId)
+    {
+        $pdo = Config::getPDO();
+        
+        $stmt = $pdo->prepare("
+            UPDATE clubs 
+            SET president_id = :student_id 
+            WHERE id = :club_id
+        ");
+        
+        return $stmt->execute([
+            'club_id' => (int)$clubId,
+            'student_id' => (int)$studentId
+        ]);
+    }
 
     /**
      * Get member count for a club
