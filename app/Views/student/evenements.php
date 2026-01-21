@@ -200,7 +200,7 @@
             <div class="bg-surface-dark rounded-xl p-6 border border-border-dark mt-4 shadow-sm">
               <h4 class="text-lg font-bold mb-4 text-white">Leave a Review</h4>
 
-              <form action='<?= url('clubs/events/'.$result['event'].'/comments') ?>' method="POST" class="flex flex-col gap-4">
+              <form action='<?= url('/clubs/events/'.$result['event'].'/comments') ?>' method="POST" class="flex flex-col gap-4">
                 <div>
                   <label class="block text-sm font-medium text-gray-400 mb-2">Your Rating (1 out of 5)</label>
                     <input class="text-primary" type="range" min="1" max="5" value ="" name = "rating"/>

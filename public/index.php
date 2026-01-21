@@ -45,7 +45,7 @@ $router->post('/clubs/events/{id}/comments', [ArticleController::class, 'comment
 
 // Club events
 // hadi zdt fiha clubs/ 
-$router->post('/clubs/events/{id}/register', [EventController::class, 'register']); // register for event
+$router->post('/events/{id}/register', [EventController::class, 'register']); // register for event
 
 // Events
 $router->get('/events', [EventController::class, 'index']); // list events
