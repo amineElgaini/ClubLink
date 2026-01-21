@@ -1,1 +1,6 @@
 [2026-01-21 08:59:48] call_user_func_array(): Argument #1 ($callback) must be a valid callback, class EventController does not have a method "show" in /var/www/html/core/Router.php:72
+[2026-01-21 11:15:29] call_user_func_array(): Argument #1 ($callback) must be a valid callback, class EventController does not have a method "show" in /var/www/html/core/Router.php:72
+[2026-01-21 11:24:57] call_user_func_array(): Argument #1 ($callback) must be a valid callback, class ClubController does not have a method "manageClubs" in /var/www/html/core/Router.php:72
+[2026-01-21 11:25:03] call_user_func_array(): Argument #1 ($callback) must be a valid callback, class ClubController does not have a method "manageClubs" in /var/www/html/core/Router.php:72
+[2026-01-21 14:24:51] SQLSTATE[23503]: Foreign key violation: 7 ERROR:  insert or update on table "clubs" violates foreign key constraint "fk_president"
+DETAIL:  Key (president_id)=(1) is not present in table "students".

@@ -80,12 +80,13 @@
                         Edit
                     </button>
 
-                    <form method="POST" action="/admin/users/<?= $s['id'] ?>/delete" style="display:inline">
+                    <form method="POST" action="<?= url('/admin/users/' . $s['id'] . '/delete') ?>" style="display:inline">
                         <input type="hidden" name="id" value="<?= $s['id'] ?>">
                         <button class="btn btn-delete" onclick="return confirm('Delete user?')">
                             Delete
                         </button>
                     </form>
+
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -97,7 +98,7 @@
     <div class="modal-content">
         <h3>Edit User</h3>
 
-        <form method="POST" action="/admin/users/<?= $s['id'] ?>/update">
+        <form method="POST" action="<?= url('/admin/users/' . $s['id'] . '/update') ?>">
             <input type="hidden" name="id" id="edit-id">
 
             <label>First name</label>
@@ -108,17 +109,12 @@
 
             <label>Email</label>
             <input type="email" name="email" id="edit-email" required>
-<!-- 
-            <label>Role</label>
-            <select name="role" id="edit-role">
-                <option value="student">Student</option>
-                <option value="admin">Admin</option>
-            </select> -->
 
             <br><br>
             <button class="btn btn-edit">Update</button>
             <button type="button" class="btn" onclick="closeModal()">Cancel</button>
         </form>
+
     </div>
 </div>
 

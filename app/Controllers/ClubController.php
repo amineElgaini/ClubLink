@@ -1,15 +1,26 @@
 <?php
-
 require_once __DIR__ . '/../Models/Club.php';
 
-class ClubController extends Controller {
-    public function index() {
-        $clubs = Club::getAllClubs();
+class ClubController extends Controller
+{
 
+    // Show all clubs
+    public function manageClubs()
+    {
+        $clubs = Club::getAllClubs();
+        $this->view('admin/manage-clubs', ['clubs' => $clubs]);
+        // $this->view('student/show-clubs', ['clubs' => $clubs]);
+    }
+
+    public function index()
+    {
+        $clubs = Club::getAllClubs();
+        // $this->view('admin/manage-clubs', ['clubs' => $clubs]);
         $this->view('student/show-clubs', ['clubs' => $clubs]);
     }
 
-    public function show($id) {
+    public function show($id)
+    {
         $clubId = (int)$id;
 
         if ($clubId <= 0) {
@@ -86,10 +97,10 @@ class ClubController extends Controller {
 
         // Check if this will be the first member
         $isFirstMember = ($count === 0);
-        
+
         // Add member to club
         $success = Club::addMember($clubId, $studentId);
-        
+
         if ($success) {
             // If first member, make them president
             if ($isFirstMember) {
@@ -106,7 +117,46 @@ class ClubController extends Controller {
         exit;
     }
 
-    public function store() {}        // create new club (admin)
-    public function update($id) {}   // update club (admin)
-    public function destroy($id) {} // delete club (admin)
+    // Create a new club (admin)
+    public function store()
+    {
+        $name = $_POST['name'] ?? null;
+        $description = $_POST['description'] ?? null;
+        // $president_id = $_POST['president_id'] ?? null;
+
+        $club = new Club($name, $description);
+        if ($club->createClub()) {
+            header('Location: ' . url('/admin/clubs'));
+
+            exit;
+        } else {
+            echo "Failed to create club.";
+        }
+    }
+
+    // Update a club (admin)
+    public function update($id)
+    {
+        $name = $_POST['name'] ?? null;
+        $description = $_POST['description'] ?? null;
+        $president_id = $_POST['president_id'] ?? null;
+
+        if (Club::updateClub($id, $name, $description, $president_id)) {
+            header('Location: ' . url('/admin/clubs'));
+            exit;
+        } else {
+            echo "Failed to update club.";
+        }
+    }
+
+    // Delete a club (admin)
+    public function destroy($id)
+    {
+        if (Club::deleteClub($id)) {
+            header('Location: ' . url('/admin/clubs'));
+            exit;
+        } else {
+            echo "Failed to delete club.";
+        }
+    }
 }
