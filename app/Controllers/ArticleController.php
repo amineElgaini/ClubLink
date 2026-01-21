@@ -18,7 +18,7 @@ class ArticleController extends Controller
     $this->view('student/evenements', ['result' =>  $result, 'comment' => $comments]);
   }
   //ajouter comments
-  public function comments($id)
+  public function comment($id)
   {
     //to get event id
     $result = Article::getArticle($id);
@@ -27,9 +27,7 @@ class ArticleController extends Controller
     $comment = $_POST['review'];
     $rating = $_POST['rating'];
     $eventId = $result['event'];
-    $studentId = $comments[0]['student'];
-    echo $studentId;
-    Comments::newComment($eventId, $studentId, $rating, $comment);
+    Comments::newComment($eventId, $_SESSION['id'], $rating, $comment);
   }
   public function create() {}
   public function store() {}

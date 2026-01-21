@@ -1,5 +1,12 @@
 <?php
 require_once __DIR__ . '/../app/Models/User.php';
+define('BASE_URL', '/ClubLink');
+function url(string $path = ''): string
+{
+    $base = rtrim(BASE_URL, '/');
+    $path = ltrim($path, '/');
+    return $base . '/' . $path;
+}
 session_start();
 $envFile = __DIR__ . '/../.env';
 if (file_exists($envFile)) {
@@ -37,7 +44,8 @@ $router->get('/clubs/events/{id}', [ArticleController::class, 'show']); // show 
 $router->post('/clubs/events/{id}/comments', [ArticleController::class, 'comment']); // post comment
 
 // Club events
-$router->post('/events/{id}/register', [EventController::class, 'register']); // register for event
+// hadi zdt fiha clubs/ 
+$router->post('/clubs/events/{id}/register', [EventController::class, 'register']); // register for event
 
 // Events
 $router->get('/events', [EventController::class, 'index']); // list events

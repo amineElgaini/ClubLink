@@ -96,12 +96,12 @@
               
             </div>
           </div>
-          <div class="flex shrink-0 w-full lg:w-auto">
-            <button class="w-full lg:w-auto bg-primary hover:bg-blue-600 text-white text-base font-bold py-3 px-8 rounded-xl shadow-lg shadow-blue-500/20 transition-all active:scale-95 flex items-center justify-center gap-2">
+          <form action = "<?= url('clubs/events/'.$result['event'].'/register') ?>" method="POST" class="flex shrink-0 w-full lg:w-auto">
+            <button type="submit" class="w-full lg:w-auto bg-primary hover:bg-blue-600 text-white text-base font-bold py-3 px-8 rounded-xl shadow-lg shadow-blue-500/20 transition-all active:scale-95 flex items-center justify-center gap-2">
               <span class="material-symbols-outlined">how_to_reg</span>
-              Register Now
+                Register Now 
             </button>
-          </div>
+          </form>
         </div>
       </section>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -200,7 +200,7 @@
             <div class="bg-surface-dark rounded-xl p-6 border border-border-dark mt-4 shadow-sm">
               <h4 class="text-lg font-bold mb-4 text-white">Leave a Review</h4>
 
-              <form action='./comments' method="POST" class="flex flex-col gap-4">
+              <form action='<?= url('clubs/events/'.$result['event'].'/comments') ?>' method="POST" class="flex flex-col gap-4">
                 <div>
                   <label class="block text-sm font-medium text-gray-400 mb-2">Your Rating (1 out of 5)</label>
                     <input class="text-primary" type="range" min="1" max="5" value ="" name = "rating"/>
