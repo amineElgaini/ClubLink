@@ -91,11 +91,20 @@ class ClubController {
             exit;
         }
 
+        // Check if this will be the first member
+        $isFirstMember = ($count === 0);
+        
         // Add member to club
         $success = Club::addMember($clubId, $studentId);
         
         if ($success) {
-            $_SESSION['success'] = 'Successfully joined the club!';
+            // If first member, make them president
+            if ($isFirstMember) {
+                Club::makePresident($clubId, $studentId);
+                $_SESSION['success'] = 'Successfully joined the club as President! 👑';
+            } else {
+                $_SESSION['success'] = 'Successfully joined the club!';
+            }
         } else {
             $_SESSION['error'] = 'Could not join club. Please try again.';
         }
