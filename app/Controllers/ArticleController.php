@@ -32,8 +32,9 @@ class ArticleController extends Controller
         $comment = $_POST['review'];
         $rating = $_POST['rating'];
         $eventId = $result['event'];
-        Comments::newComment($eventId, $_SESSION['id'], $rating, $comment);
-    }
+        Comments::newComment($eventId, $_SESSION['user']->id, $rating, $comment);
+          header("Location: " . $_SERVER['HTTP_REFERER']);
+    } 
 
     public function create()
     {
