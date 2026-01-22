@@ -15,4 +15,15 @@ class Events {
   
   }
 
+  public static function getEvents($id){
+
+      $pdo = Config::getPDO();
+    $stmt = $pdo->prepare(
+      "select * from events where id = :id"
+    );
+    $stmt->execute([":id" => $id]);
+    return $stmt->fetch();
+    
+  }
+
 }

@@ -1,35 +1,39 @@
 <?php
 require_once __DIR__ . '/../Models/Article.php';
+require_once __DIR__ . '/../Models/Events.php';
 require_once __DIR__ . '/../Models/Comments.php';
 require_once __DIR__ . '/../Models/User.php';
 // app/Controllers/ArticleController.php
-class ArticleController extends Controller {
-      public function show($id)
-  {
-    //article
-    $result = Article::getArticle($id);
-    
-    // printf($id);
-    //comments
-    $comments = Comments::showComments($result['event']);
-    //view
-    $arr = [];
-    $arr['article'] = $result;
-    $arr['comments'] = $comments;
-    $this->view('student/evenements', ['result' =>  $result, 'comment' => $comments]);
-  }
+class ArticleController extends Controller
+{
+    public function show($id)
+    {
+        $article = Article::getArticle($id);
 
-  public function comment($id)
-  {
-    //to get event id
-    $result = Article::getArticle($id);
-    $comments = Comments::showComments($result['event']);
+        $event = Events::getEvents($id);
+        $comments = Comments::showComments($id);
 
-    $comment = $_POST['review'];
-    $rating = $_POST['rating'];
-    $eventId = $result['event'];
-    Comments::newComment($eventId, $_SESSION['id'], $rating, $comment);
-  }
+        $this->view(
+            'student/evenements',
+            [
+                'result'  => $event,   
+                'article' => $article,
+                'comment' => $comments
+            ]
+        );
+    }
+
+    public function comment($id)
+    {
+        //to get event id
+        $result = Article::getArticle($id);
+        $comments = Comments::showComments($result['event']);
+
+        $comment = $_POST['review'];
+        $rating = $_POST['rating'];
+        $eventId = $result['event'];
+        Comments::newComment($eventId, $_SESSION['id'], $rating, $comment);
+    }
 
     public function create()
     {
@@ -168,14 +172,14 @@ class ArticleController extends Controller {
 
         // Verify user has permission for this club
         $pdo = Config::getPDO();
-        
+
         if (!$user->isAdmin()) {
             $stmt = $pdo->prepare("SELECT id FROM clubs WHERE id = :cid AND president_id = :pid");
             $stmt->execute([
                 'cid' => (int)$_POST['club_id'],
                 'pid' => (int)$user->id
             ]);
-            
+
             if (!$stmt->fetch()) {
                 $_SESSION['error'] = 'You do not have permission to create articles for this club.';
                 header('Location: /clubs');
