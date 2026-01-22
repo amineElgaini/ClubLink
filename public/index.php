@@ -12,14 +12,6 @@ if (file_exists($envFile)) {
         $_ENV[trim($key)] = trim($value);
     }
 }
-define('BASE_URL', '/');
-function url(string $path = ''): string
-{
-    $base = rtrim(BASE_URL, '/');
-    $path = ltrim($path, '/');
-    return $base . '/' . $path;
-}
-
 define('BASE_URL', '/ClubLink');
 function url(string $path = ''): string
 {
@@ -27,6 +19,7 @@ function url(string $path = ''): string
     $path = ltrim($path, '/');
     return $base . '/' . $path;
 }
+
 
 
 
@@ -49,6 +42,9 @@ require_once __DIR__ . '/../core/Router.php';
 
 $router = new Router();
 $router->setBasePath('ClubLink');
+$router->get('/', function(){
+  header("location: ".url("clubs"));
+});
 
 // Auth
 $router->get('/login', [AuthController::class, 'loginPage']);
