@@ -1,35 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My MVC App</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        header { margin-bottom: 20px; }
-        footer { margin-top: 20px; font-size: 0.9em; color: #555; }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>My MVC App</h1>
-        <nav>
-            <a href="/">Home</a> |
-            <a href="/user/profile">Profile</a>
-        </nav>
-    </header>
+<h2>Register</h2>
 
-    <main>
-        <?php
-        if (isset($viewFile)) {
-            include $viewFile;
-        } else {
-            echo "<p>View not found!</p>";
-        }
-        ?>
-    </main>
+<form method="POST" action="./register">
+    <input type="text" name="first_name" placeholder="First name" required>
 
-    <footer>
-        &copy; <?= date('Y') ?> My MVC App
-    </footer>
-</body>
-</html>
+    <input type="text" name="last_name" placeholder="Last name" required>
+
+    <input type="email" name="email" placeholder="Email" required>
+
+    <input type="password" name="password" placeholder="Password" required>
+
+    <button type="submit">Register</button>
+</form>
+
+<div class="link">
+  <a href="./login">Already have an account?</a>
+</div>
