@@ -126,9 +126,9 @@
                 <div class="bg-surface-dark rounded-lg p-4 border border-border-dark shadow-sm">
                   <div class="flex justify-between items-start mb-2">
                     <div class="flex items-center gap-3">
-                      <div class="bg-center bg-no-repeat bg-cover rounded-full w-10 h-10" style="background-image: url('<?= htmlspecialchars($c['avatar'] ?? 'https://via.placeholder.com/40') ?>');"></div>
                       <div>
                         <p class="text-white font-medium text-sm"><?= htmlspecialchars($c['first_name'].' '.$c['last_name']) ?></p>
+                        <h2 class="text-white "><?= htmlspecialchars($c['rating']) ?> Stars</h2>
                       </div>
                     </div>
                   </div>
