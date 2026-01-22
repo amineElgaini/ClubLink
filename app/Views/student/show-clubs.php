@@ -293,7 +293,7 @@
         ?>
         
         <?php foreach ($clubs as $club): ?>
-            <a href="/clubs/<?= $club['id'] ?>" class="club-card">
+  <a href="<?= url("/clubs/".$club['id']) ?>" class="club-card">
                 <div class="club-header <?= $gradients[$index % count($gradients)] ?>">
                     <div class="club-badge">
                         <span>Active</span>
