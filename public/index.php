@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 $envFile = __DIR__ . '/../.env';
 
 if (file_exists($envFile)) {
@@ -17,6 +20,16 @@ function url(string $path = ''): string
     return $base . '/' . $path;
 }
 
+define('BASE_URL', '/ClubLink');
+function url(string $path = ''): string
+{
+    $base = rtrim(BASE_URL, '/');
+    $path = ltrim($path, '/');
+    return $base . '/' . $path;
+}
+
+
+
 require_once __DIR__ . '/../core/Logger.php';
 require_once __DIR__ . '/../core/AppException.php';
 require_once __DIR__ . '/../core/ErrorHandler.php';
@@ -26,12 +39,16 @@ require_once __DIR__ . '/../core/Controller.php';
 session_start();
 ErrorHandler::register();
 
+// $_SESSION['user'] = [
+//     'id' => 3,
+//     'role' => 'student'
+// ];
+
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../core/Router.php';
 
 $router = new Router();
 $router->setBasePath('ClubLink');
-
 
 // Auth
 $router->get('/login', [AuthController::class, 'loginPage']);
@@ -39,7 +56,6 @@ $router->post('/login', [AuthController::class, 'loginAction']);
 $router->get('/register', [AuthController::class, 'registerPage']);
 $router->post('/register', [AuthController::class, 'registerAction']);
 $router->get('/logout', [AuthController::class, 'logout']);
-
 
 // Club Page
 $router->get('/clubs', [ClubController::class, 'index']);

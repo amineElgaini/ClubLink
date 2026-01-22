@@ -312,6 +312,7 @@
         </div>
     </nav>
 
+
     <!-- Main Container -->
     <div class="container">
         <?php if (!empty($_SESSION['error'])): ?>

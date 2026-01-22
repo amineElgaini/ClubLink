@@ -22,7 +22,7 @@ class ErrorHandler
 
         Logger::error("{$e->getMessage()} in {$e->getFile()}:{$e->getLine()}");
 
-        http_response_code($httpCode);
+        // http_response_code($httpCode);
 
         self::render($e);
         exit;
@@ -60,7 +60,7 @@ class ErrorHandler
 
         Logger::error("FATAL: {$e->getMessage()} in {$e->getFile()}:{$e->getLine()}");
 
-        http_response_code(500);
+        // http_response_code(500);
         self::render($e);
     }
 
