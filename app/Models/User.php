@@ -3,7 +3,7 @@
 
 // require_once __DIR__ . '/../../config/Config.php';
 
-class User
+class User 
 {
     /* =====================
        Attributes
