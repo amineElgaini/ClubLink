@@ -134,7 +134,7 @@ class Article
         $pdo = Config::getPDO();
 
         $stmt = $pdo->prepare(
-            "select * from articles where id = :article_id"
+            "select *,event_id as event from articles where id = :article_id"
         );
         $stmt->execute(['article_id' => $articleId]);
         return $stmt->fetch();

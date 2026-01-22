@@ -39,21 +39,7 @@
     }
   </script>
     
-<script>
-  const registerButton = document.querySelector(".register");
 
-  const eventDateStr = registerButton.dataset.date;
-  const eventDate = new Date(eventDateStr);
-
-  var today = new Date();
-
-  if (eventDate.getTime() !== today.getTime()) {
-    registerButton.disabled = true; 
-    registerButton.style.pointerEvents = "none"; 
-    registerButton.style.cursor = "not-allowed";
-    registerButton.style.opacity = "0.2"; 
-  }
-</script>
   <style>
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -84,12 +70,23 @@
         <div class="flex flex-col gap-3 flex-1">
           <h1 class="text-white text-3xl md:text-5xl font-black leading-tight tracking-[-0.033em]"><?= htmlspecialchars($result['title']) ?></h1>
         </div>
-        <form data-date = "<?= $result['event_date'] ?>"  action="<?= url('clubs/events/'.($result['id'] ?? 0).'/register') ?>" method="POST" class="register flex shrink-0 w-full lg:w-auto">
-          <button type="submit" class="w-full lg:w-auto bg-primary hover:bg-blue-600 text-white text-base font-bold py-3 px-8 rounded-xl shadow-lg shadow-blue-500/20 transition-all active:scale-95 flex items-center justify-center gap-2">
-                <span class="material-symbols-outlined " >how_to_reg</span> Register Now
+            <?php 
+            
+            
+            if ($result['event_date'] != date("Y-m-d")) {
+            echo "L'evenement n'est pas active";
+            }
+            else {
+            echo "<form  action='". url('clubs/events/'.($result['id']).'/register') ."' method='POST' class='register flex shrink-0 w-full lg:w-auto'>
+          <button type='submit' class='w-full lg:w-auto bg-primary hover:bg-blue-600 text-white text-base font-bold py-3 px-8 rounded-xl shadow-lg shadow-blue-500/20 transition-all active:scale-95 flex items-center justify-center gap-2'>
+                <span class='material-symbols-outlined ' >how_to_reg</span> Register Now
           </button>
-        </form>
-      </div>
+        </form>";
+            }
+
+
+            ?>
+             </div>
     </section>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
