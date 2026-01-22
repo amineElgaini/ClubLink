@@ -2,7 +2,6 @@
 class Club
 {
 
-
     private $name;
     private $president_id;
     private $description;

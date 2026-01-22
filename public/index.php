@@ -48,7 +48,7 @@ $router->post('/clubs/{id}/join', [ClubController::class, 'join']);
 
 
 // Event Detail
-$router->get('/clubs/event/{id}', [ClubController::class, 'show']);
+$router->get('/clubs/event/{id}', [ArticleController::class, 'show']);
 $router->post('/clubs/event/{id}/comment', [ArticleController::class, 'comment']);
 $router->post('/clubs/event/{id}/register', [EventController::class, 'register']);
 

@@ -79,7 +79,7 @@ class User
             'email'      => $data['email'],
             'password'   => password_hash($data['password'], PASSWORD_DEFAULT),
             'role'       => $data['role'] ?? 'student',
-        ]);
+         ]);
 
         return new User($stmt->fetch());
     }

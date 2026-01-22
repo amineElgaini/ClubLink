@@ -1,10 +1,3 @@
-<?php
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-?>
-
-
 <!DOCTYPE html>
 <html class="dark" lang="en">
 <head>
@@ -108,7 +101,7 @@ error_reporting(E_ALL);
                 </button>
                 <?php else: ?>
                     <?php if (!empty($_SESSION['user']) && !$club['is_full'] && empty($userClubId)): ?>
-                        <form method="POST" action="/clubs/<?= (int)$club['id'] ?>/join">
+                        <form method="POST" action="<?= url("/clubs/" . (int)$club['id'] . "/join") ?>">
                             <button class="flex items-center justify-center gap-2 rounded-lg bg-primary hover:bg-blue-600 text-white font-bold h-12 px-6 transition-all shadow-[0_0_15px_rgba(13,127,242,0.3)] w-full sm:w-auto">
                             <span class="material-symbols-outlined">group_add</span>
                             <span>Join Club</span>
@@ -216,7 +209,7 @@ error_reporting(E_ALL);
 
                     <div class="flex flex-col gap-4">
                         <?php foreach ($pastEvents as $ev): ?>
-                            <a href="/ClubLink/clubs/events/<?= (int)$ev['id'] ?>" class="flex gap-4 items-start group">
+                            <a href="<?=  url("/clubs/event/" . (int)$ev['id']) ?>" class="flex gap-4 items-start group">
                                 <div class="flex flex-col items-center justify-center bg-background-dark rounded w-12 h-12 border border-white/10 shrink-0">
                                 <span class="text-[10px] font-bold text-primary uppercase"><?= htmlspecialchars($ev['month']) ?></span>
                                 <span class="text-lg font-bold text-white leading-none"><?= htmlspecialchars($ev['day']) ?></span>

@@ -9,7 +9,7 @@ class Article
     public static function findById($id)
     {
         $pdo = Config::getPDO();
-        
+
         $stmt = $pdo->prepare("
             SELECT a.*, c.name as club_name, e.title as event_title
             FROM articles a
@@ -17,7 +17,7 @@ class Article
             LEFT JOIN events e ON a.event_id = e.id
             WHERE a.id = :id
         ");
-        
+
         $stmt->execute(['id' => (int)$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
@@ -28,18 +28,18 @@ class Article
     public static function getAll($limit = null)
     {
         $pdo = Config::getPDO();
-        
+
         $sql = "
             SELECT a.*, c.name as club_name
             FROM articles a
             LEFT JOIN clubs c ON a.club_id = c.id
             ORDER BY a.created_at DESC
         ";
-        
+
         if ($limit) {
             $sql .= " LIMIT " . (int)$limit;
         }
-        
+
         $stmt = $pdo->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -50,7 +50,7 @@ class Article
     public static function getByClubId($clubId, $limit = null)
     {
         $pdo = Config::getPDO();
-        
+
         $sql = "
             SELECT a.*, e.title as event_title
             FROM articles a
@@ -58,11 +58,11 @@ class Article
             WHERE a.club_id = :club_id
             ORDER BY a.created_at DESC
         ";
-        
+
         if ($limit) {
             $sql .= " LIMIT " . (int)$limit;
         }
-        
+
         $stmt = $pdo->prepare($sql);
         $stmt->execute(['club_id' => (int)$clubId]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -74,13 +74,13 @@ class Article
     public static function create($data)
     {
         $pdo = Config::getPDO();
-        
+
         $stmt = $pdo->prepare("
             INSERT INTO articles (club_id, event_id, title, content, image_url)
             VALUES (:club_id, :event_id, :title, :content, :image_url)
             RETURNING id
         ");
-        
+
         $stmt->execute([
             'club_id' => (int)$data['club_id'],
             'event_id' => !empty($data['event_id']) ? (int)$data['event_id'] : null,
@@ -88,7 +88,7 @@ class Article
             'content' => $data['content'],
             'image_url' => $data['image_url'] ?? null
         ]);
-        
+
         $row = $stmt->fetch();
         return $row['id'] ?? null;
     }
@@ -99,7 +99,7 @@ class Article
     public static function update($id, $data)
     {
         $pdo = Config::getPDO();
-        
+
         $stmt = $pdo->prepare("
             UPDATE articles 
             SET title = :title, 
@@ -108,7 +108,7 @@ class Article
                 event_id = :event_id
             WHERE id = :id
         ");
-        
+
         return $stmt->execute([
             'id' => (int)$id,
             'title' => $data['title'],
@@ -124,8 +124,23 @@ class Article
     public static function delete($id)
     {
         $pdo = Config::getPDO();
-        
+
         $stmt = $pdo->prepare("DELETE FROM articles WHERE id = :id");
         return $stmt->execute(['id' => (int)$id]);
+    }
+
+    public static function getArticle($articleId)
+    {
+
+        $pdo = Config::getPDO();
+
+        $stmt = $pdo->prepare(
+            "select * ,articles.event_id as event from events left join articles on events.id = articles.event_id left join reviews on reviews.event_id = events.id where articles.id = :article_id"
+        );
+        $stmt->execute(["article_id" => $articleId]);
+        $result = $stmt->fetch();
+        print_r($articleId);
+        // die();
+        return $result;
     }
 }

@@ -171,5 +171,5 @@ VALUES
 INSERT INTO articles (club_id, event_id, title, content, image_url)
 VALUES
 (1, 1, 'Physics Workshop Recap', 'We had an amazing physics workshop last week...', 'images/physics_article.jpg'),
-(2, NULL, 'Art Club Monthly Update', 'This month we focused on watercolor techniques...', 'images/art_article.jpg'),
+(2, 2, 'Art Club Monthly Update', 'This month we focused on watercolor techniques...', 'images/art_article.jpg'),
 (3, 3, 'Football Match Highlights', 'Highlights from our friendly football match...', 'images/football_article.jpg');
