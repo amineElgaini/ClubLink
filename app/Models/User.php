@@ -79,12 +79,12 @@ class User
             'email'      => $data['email'],
             'password'   => password_hash($data['password'], PASSWORD_DEFAULT),
             'role'       => $data['role'] ?? 'student',
-        ]);
+         ]);
 
         return new User($stmt->fetch());
     }
 
-        public static function logout(): void
+    public static function logout(): void
     {
         // Remove user_id from session
         unset($_SESSION['user_id']);
@@ -101,6 +101,22 @@ class User
     {
         return $this->role === 'admin';
     }
+
+
+public function isPresident(): bool
+{
+    $pdo = Config::getPDO();
+
+    $sql = "SELECT EXISTS (
+                SELECT 1 FROM clubs WHERE president_id = :id
+            )";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['id' => $this->id]);
+
+    return (bool) $stmt->fetchColumn();
+}
+
 
     public function fullName(): string
     {

@@ -1,0 +1,192 @@
+[2026-01-20 15:45:23] ERROR: syntax error, unexpected variable "$userId" in /var/www/html/ClubLink/app/Controllers/EventController.php:12
+[2026-01-20 15:50:59] ERROR: Undefined array key "user" in /var/www/html/ClubLink/app/Controllers/EventController.php:11
+[2026-01-20 15:52:46] ERROR: Undefined array key "user" in /var/www/html/ClubLink/app/Controllers/EventController.php:6
+[2026-01-20 15:55:41] ERROR: Undefined array key "user" in /var/www/html/ClubLink/app/Controllers/EventController.php:6
+[2026-01-20 15:55:42] ERROR: Undefined array key "user" in /var/www/html/ClubLink/app/Controllers/EventController.php:6
+[2026-01-20 15:55:43] ERROR: Undefined array key "user" in /var/www/html/ClubLink/app/Controllers/EventController.php:6
+[2026-01-20 15:55:53] ERROR: Undefined array key "user" in /var/www/html/ClubLink/app/Controllers/EventController.php:7
+[2026-01-20 15:56:02] ERROR: Undefined array key "user" in /var/www/html/ClubLink/app/Controllers/EventController.php:6
+[2026-01-20 15:57:58] ERROR: Undefined array key "user" in /var/www/html/ClubLink/app/Controllers/EventController.php:6
+[2026-01-20 15:57:59] ERROR: Undefined array key "user" in /var/www/html/ClubLink/app/Controllers/EventController.php:6
+[2026-01-20 16:02:06] ERROR: Class "Club" not found in /var/www/html/ClubLink/app/Controllers/EventController.php:18
+[2026-01-20 16:05:24] ERROR: Object of class PDO could not be converted to string in /var/www/html/ClubLink/app/Models/Club.php:9
+[2026-01-20 16:05:25] ERROR: Object of class PDO could not be converted to string in /var/www/html/ClubLink/app/Models/Club.php:9
+[2026-01-20 16:11:05] ERROR: Object of class PDO could not be converted to string in /var/www/html/ClubLink/app/Models/Club.php:10
+[2026-01-20 16:11:06] ERROR: Object of class PDO could not be converted to string in /var/www/html/ClubLink/app/Models/Club.php:10
+[2026-01-20 16:11:49] ERROR: Object of class PDO could not be converted to string in /var/www/html/ClubLink/app/Models/Club.php:10
+[2026-01-20 16:12:39] ERROR: Undefined variable $pdo in /var/www/html/ClubLink/app/Models/Club.php:16
+[2026-01-20 16:12:55] ERROR: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for table clubs in /var/www/html/ClubLink/app/Models/Club.php:17
+[2026-01-20 16:17:23] ERROR: Object of class PDO could not be converted to string in /var/www/html/ClubLink/app/Models/Club.php:9
+[2026-01-20 16:20:14] ERROR: Object of class PDO could not be converted to string in /var/www/html/ClubLink/app/Models/Club.php:10
+[2026-01-20 16:20:15] ERROR: Object of class PDO could not be converted to string in /var/www/html/ClubLink/app/Models/Club.php:10
+[2026-01-20 16:20:15] ERROR: Object of class PDO could not be converted to string in /var/www/html/ClubLink/app/Models/Club.php:10
+[2026-01-20 19:21:20] ERROR: Object of class PDO could not be converted to string in /var/www/html/ClubLink/app/Models/Club.php:10
+[2026-01-20 20:57:03] ERROR: Object of class PDO could not be converted to string in /var/www/html/ClubLink/app/Models/Club.php:10
+[2026-01-21 08:38:13] ERROR: Object of class PDO could not be converted to string in /var/www/html/ClubLink/app/Models/Club.php:10
+[2026-01-21 08:40:55] ERROR: Too few arguments to function Club::__construct(), 0 passed in /var/www/html/ClubLink/app/Controllers/EventController.php on line 21 and exactly 1 expected in /var/www/html/ClubLink/app/Models/Club.php:8
+[2026-01-21 08:45:15] ERROR: session_start(): Ignoring session_start() because a session is already active (started from /var/www/html/ClubLink/public/index.php on line 22) in /var/www/html/ClubLink/app/Controllers/EventController.php:10
+[2026-01-21 08:45:25] ERROR: Class "Database" not found in /var/www/html/ClubLink/app/Controllers/EventController.php:24
+[2026-01-21 08:46:09] ERROR: require_once(/var/www/html/ClubLink/app/Controllers/../../config/Config.php): Failed to open stream: No such file or directory in /var/www/html/ClubLink/app/Controllers/EventController.php:5
+[2026-01-21 08:46:24] ERROR: Call to undefined method Config::connect() in /var/www/html/ClubLink/app/Controllers/EventController.php:24
+[2026-01-21 08:47:32] ERROR: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for table clubs in /var/www/html/ClubLink/app/Models/Club.php:17
+[2026-01-21 08:48:13] ERROR: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for table clubs in /var/www/html/ClubLink/app/Models/Club.php:17
+[2026-01-21 08:49:35] ERROR: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for table clubs in /var/www/html/ClubLink/app/Models/Club.php:16
+[2026-01-21 08:57:18] ERROR: Object of class PDO could not be converted to string in /var/www/html/ClubLink/app/Models/Evenement.php:12
+[2026-01-21 08:58:22] ERROR: include(/var/www/html/ClubLink/app/Controllers/../views/president/manage-event.php): Failed to open stream: No such file or directory in /var/www/html/ClubLink/app/Controllers/EventController.php:38
+[2026-01-21 08:59:31] ERROR: include(/var/www/html/ClubLink/app/Controllers/views/president/manage-event.php): Failed to open stream: No such file or directory in /var/www/html/ClubLink/app/Controllers/EventController.php:38
+[2026-01-21 08:59:44] ERROR: include(/var/www/html/ClubLink/app/Controllers/../../views/president/manage-event.php): Failed to open stream: No such file or directory in /var/www/html/ClubLink/app/Controllers/EventController.php:38
+[2026-01-21 09:01:01] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:30
+[2026-01-21 09:01:25] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:82
+[2026-01-21 09:06:49] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:82
+[2026-01-21 09:06:50] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:82
+[2026-01-21 09:09:06] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:91
+[2026-01-21 09:09:10] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:91
+[2026-01-21 09:10:02] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:96
+[2026-01-21 09:10:03] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:96
+[2026-01-21 09:10:07] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:96
+[2026-01-21 09:21:16] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:96
+[2026-01-21 09:21:21] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:96
+[2026-01-21 09:21:26] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:96
+[2026-01-21 09:34:01] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:96
+[2026-01-21 09:34:03] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:96
+[2026-01-21 09:34:08] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:96
+[2026-01-21 09:38:42] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:23
+[2026-01-21 09:39:16] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:41
+[2026-01-21 09:45:51] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:41
+[2026-01-21 09:54:09] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:50
+[2026-01-21 09:54:26] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:78
+[2026-01-21 09:54:27] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:78
+[2026-01-21 09:54:28] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:50
+[2026-01-21 09:57:59] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:50
+[2026-01-21 09:58:05] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:50
+[2026-01-21 10:00:25] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:50
+[2026-01-21 10:03:39] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:43
+[2026-01-21 10:04:00] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:53
+[2026-01-21 10:04:06] ERROR: Undefined array key "date" in /var/www/html/ClubLink/app/Views/president/manage-event.php:53
+[2026-01-21 10:05:42] ERROR: Undefined array key "name" in /var/www/html/ClubLink/app/Views/president/manage-event.php:78
+[2026-01-21 10:05:59] ERROR: Undefined array key "name" in /var/www/html/ClubLink/app/Views/president/manage-event.php:78
+[2026-01-21 10:48:08] ERROR: Undefined array key "image_url" in /var/www/html/ClubLink/app/Models/Evenement.php:42
+[2026-01-21 10:49:36] ERROR: Undefined array key "image_url" in /var/www/html/ClubLink/app/Models/Evenement.php:42
+[2026-01-21 10:49:37] ERROR: Undefined array key "image_url" in /var/www/html/ClubLink/app/Models/Evenement.php:42
+[2026-01-21 10:49:41] ERROR: Undefined array key "image_url" in /var/www/html/ClubLink/app/Models/Evenement.php:42
+[2026-01-21 11:09:23] ERROR: SQLSTATE[HY093]: Invalid parameter number: :event_date in /var/www/html/ClubLink/app/Models/Evenement.php:59
+[2026-01-21 11:22:42] ERROR: session_start(): Ignoring session_start() because a session is already active (started from /var/www/html/ClubLink/public/index.php on line 22) in /var/www/html/ClubLink/app/Controllers/EventController.php:89
+[2026-01-21 11:44:58] ERROR: Class "Controller" not found in /var/www/html/ClubLink/app/Controllers/EventController.php:8
+[2026-01-21 11:47:03] ERROR: Undefined constant "this" in /var/www/html/ClubLink/app/Controllers/EventController.php:41
+[2026-01-21 11:47:27] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:78
+[2026-01-21 11:49:03] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 11:49:03] ERROR: FATAL: Uncaught ErrorException: http_response_code(): Cannot set response code - headers already sent (output started at /var/www/html/ClubLink/app/Views/layout.php:6) in /var/www/html/ClubLink/core/ErrorHandler.php:25
+Stack trace:
+#0 [internal function]: ErrorHandler::handleError()
+#1 /var/www/html/ClubLink/core/ErrorHandler.php(25): http_response_code()
+#2 [internal function]: ErrorHandler::handleException()
+#3 {main}
+  thrown in /var/www/html/ClubLink/core/ErrorHandler.php:25
+[2026-01-21 11:52:40] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 11:52:40] ERROR: FATAL: Uncaught ErrorException: http_response_code(): Cannot set response code - headers already sent (output started at /var/www/html/ClubLink/app/Views/layout.php:6) in /var/www/html/ClubLink/core/ErrorHandler.php:25
+Stack trace:
+#0 [internal function]: ErrorHandler::handleError()
+#1 /var/www/html/ClubLink/core/ErrorHandler.php(25): http_response_code()
+#2 [internal function]: ErrorHandler::handleException()
+#3 {main}
+  thrown in /var/www/html/ClubLink/core/ErrorHandler.php:25
+[2026-01-21 11:52:41] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 11:52:41] ERROR: FATAL: Uncaught ErrorException: http_response_code(): Cannot set response code - headers already sent (output started at /var/www/html/ClubLink/app/Views/layout.php:6) in /var/www/html/ClubLink/core/ErrorHandler.php:25
+Stack trace:
+#0 [internal function]: ErrorHandler::handleError()
+#1 /var/www/html/ClubLink/core/ErrorHandler.php(25): http_response_code()
+#2 [internal function]: ErrorHandler::handleException()
+#3 {main}
+  thrown in /var/www/html/ClubLink/core/ErrorHandler.php:25
+[2026-01-21 11:52:42] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 11:52:42] ERROR: FATAL: Uncaught ErrorException: http_response_code(): Cannot set response code - headers already sent (output started at /var/www/html/ClubLink/app/Views/layout.php:6) in /var/www/html/ClubLink/core/ErrorHandler.php:25
+Stack trace:
+#0 [internal function]: ErrorHandler::handleError()
+#1 /var/www/html/ClubLink/core/ErrorHandler.php(25): http_response_code()
+#2 [internal function]: ErrorHandler::handleException()
+#3 {main}
+  thrown in /var/www/html/ClubLink/core/ErrorHandler.php:25
+[2026-01-21 11:52:42] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 11:52:42] ERROR: FATAL: Uncaught ErrorException: http_response_code(): Cannot set response code - headers already sent (output started at /var/www/html/ClubLink/app/Views/layout.php:6) in /var/www/html/ClubLink/core/ErrorHandler.php:25
+Stack trace:
+#0 [internal function]: ErrorHandler::handleError()
+#1 /var/www/html/ClubLink/core/ErrorHandler.php(25): http_response_code()
+#2 [internal function]: ErrorHandler::handleException()
+#3 {main}
+  thrown in /var/www/html/ClubLink/core/ErrorHandler.php:25
+[2026-01-21 11:52:42] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 11:52:42] ERROR: FATAL: Uncaught ErrorException: http_response_code(): Cannot set response code - headers already sent (output started at /var/www/html/ClubLink/app/Views/layout.php:6) in /var/www/html/ClubLink/core/ErrorHandler.php:25
+Stack trace:
+#0 [internal function]: ErrorHandler::handleError()
+#1 /var/www/html/ClubLink/core/ErrorHandler.php(25): http_response_code()
+#2 [internal function]: ErrorHandler::handleException()
+#3 {main}
+  thrown in /var/www/html/ClubLink/core/ErrorHandler.php:25
+[2026-01-21 11:52:43] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 11:52:43] ERROR: FATAL: Uncaught ErrorException: http_response_code(): Cannot set response code - headers already sent (output started at /var/www/html/ClubLink/app/Views/layout.php:6) in /var/www/html/ClubLink/core/ErrorHandler.php:25
+Stack trace:
+#0 [internal function]: ErrorHandler::handleError()
+#1 /var/www/html/ClubLink/core/ErrorHandler.php(25): http_response_code()
+#2 [internal function]: ErrorHandler::handleException()
+#3 {main}
+  thrown in /var/www/html/ClubLink/core/ErrorHandler.php:25
+[2026-01-21 11:52:43] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 11:52:43] ERROR: FATAL: Uncaught ErrorException: http_response_code(): Cannot set response code - headers already sent (output started at /var/www/html/ClubLink/app/Views/layout.php:6) in /var/www/html/ClubLink/core/ErrorHandler.php:25
+Stack trace:
+#0 [internal function]: ErrorHandler::handleError()
+#1 /var/www/html/ClubLink/core/ErrorHandler.php(25): http_response_code()
+#2 [internal function]: ErrorHandler::handleException()
+#3 {main}
+  thrown in /var/www/html/ClubLink/core/ErrorHandler.php:25
+[2026-01-21 11:52:43] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 11:52:43] ERROR: FATAL: Uncaught ErrorException: http_response_code(): Cannot set response code - headers already sent (output started at /var/www/html/ClubLink/app/Views/layout.php:6) in /var/www/html/ClubLink/core/ErrorHandler.php:25
+Stack trace:
+#0 [internal function]: ErrorHandler::handleError()
+#1 /var/www/html/ClubLink/core/ErrorHandler.php(25): http_response_code()
+#2 [internal function]: ErrorHandler::handleException()
+#3 {main}
+  thrown in /var/www/html/ClubLink/core/ErrorHandler.php:25
+[2026-01-21 11:52:43] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 11:52:43] ERROR: FATAL: Uncaught ErrorException: http_response_code(): Cannot set response code - headers already sent (output started at /var/www/html/ClubLink/app/Views/layout.php:6) in /var/www/html/ClubLink/core/ErrorHandler.php:25
+Stack trace:
+#0 [internal function]: ErrorHandler::handleError()
+#1 /var/www/html/ClubLink/core/ErrorHandler.php(25): http_response_code()
+#2 [internal function]: ErrorHandler::handleException()
+#3 {main}
+  thrown in /var/www/html/ClubLink/core/ErrorHandler.php:25
+[2026-01-21 11:52:43] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 11:52:43] ERROR: FATAL: Uncaught ErrorException: http_response_code(): Cannot set response code - headers already sent (output started at /var/www/html/ClubLink/app/Views/layout.php:6) in /var/www/html/ClubLink/core/ErrorHandler.php:25
+Stack trace:
+#0 [internal function]: ErrorHandler::handleError()
+#1 /var/www/html/ClubLink/core/ErrorHandler.php(25): http_response_code()
+#2 [internal function]: ErrorHandler::handleException()
+#3 {main}
+  thrown in /var/www/html/ClubLink/core/ErrorHandler.php:25
+[2026-01-21 11:53:45] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 11:54:38] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 11:55:05] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 11:55:17] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 11:57:10] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:298
+[2026-01-21 11:57:27] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:298
+[2026-01-21 11:57:48] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:298
+[2026-01-21 13:33:20] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 13:33:23] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 13:33:25] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 13:34:13] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 13:35:45] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 13:36:26] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 13:39:32] ERROR: Club::getClubByPresident(): Argument #1 ($presidentId) must be of type int, array given, called in /var/www/html/ClubLink/app/Controllers/EventController.php on line 29 in /var/www/html/ClubLink/app/Models/Club.php:11
+[2026-01-21 13:39:33] ERROR: Club::getClubByPresident(): Argument #1 ($presidentId) must be of type int, array given, called in /var/www/html/ClubLink/app/Controllers/EventController.php on line 29 in /var/www/html/ClubLink/app/Models/Club.php:11
+[2026-01-21 13:40:04] ERROR: Club::getClubByPresident(): Argument #1 ($presidentId) must be of type int, array given, called in /var/www/html/ClubLink/app/Controllers/EventController.php on line 29 in /var/www/html/ClubLink/app/Models/Club.php:11
+[2026-01-21 14:29:58] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 14:30:52] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 14:30:53] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 14:30:54] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 14:30:54] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 14:30:54] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 14:30:54] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 14:30:54] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 14:30:57] ERROR: Call to a member function fullName() on array in /var/www/html/ClubLink/app/Views/layout.php:297
+[2026-01-21 14:44:33] ERROR: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "students_pkey"
+DETAIL:  Key (id)=(5) already exists. in /var/www/html/ClubLink/app/Models/User.php:76
+[2026-01-21 14:56:48] ERROR: Cannot use object of type User as array in /var/www/html/ClubLink/app/Controllers/EventController.php:16

@@ -103,7 +103,6 @@ CREATE TABLE reviews (
 );
 
 
-
 CREATE TABLE articles (
     id SERIAL PRIMARY KEY,
     club_id INT NOT NULL,
@@ -137,9 +136,9 @@ VALUES
 -- Clubs
 INSERT INTO clubs (name, description, president_id)
 VALUES
-('Science Club', 'A club for science enthusiasts', 3),
-('Art Club', 'Explore your creativity with arts', NULL),
-('Sports Club', 'All about sports and fitness', NULL);
+('Science Club', 'A club for science enthusiasts', 2),
+('Art Club', 'Explore your creativity with arts', 1),
+('Sports Club', 'All about sports and fitness', 4);
 
 -- Club Members
 INSERT INTO club_members (club_id, student_id)
@@ -172,5 +171,5 @@ VALUES
 INSERT INTO articles (club_id, event_id, title, content, image_url)
 VALUES
 (1, 1, 'Physics Workshop Recap', 'We had an amazing physics workshop last week...', 'images/physics_article.jpg'),
-(2, NULL, 'Art Club Monthly Update', 'This month we focused on watercolor techniques...', 'images/art_article.jpg'),
+(2, 2, 'Art Club Monthly Update', 'This month we focused on watercolor techniques...', 'images/art_article.jpg'),
 (3, 3, 'Football Match Highlights', 'Highlights from our friendly football match...', 'images/football_article.jpg');
