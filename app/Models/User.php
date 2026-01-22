@@ -102,6 +102,22 @@ class User
         return $this->role === 'admin';
     }
 
+
+public function isPresident(): bool
+{
+    $pdo = Config::getPDO();
+
+    $sql = "SELECT EXISTS (
+                SELECT 1 FROM clubs WHERE president_id = :id
+            )";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['id' => $this->id]);
+
+    return (bool) $stmt->fetchColumn();
+}
+
+
     public function fullName(): string
     {
         return $this->first_name . ' ' . $this->last_name;

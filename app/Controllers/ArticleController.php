@@ -2,10 +2,8 @@
 require_once __DIR__ . '/../Models/Article.php';
 require_once __DIR__ . '/../Models/Events.php';
 require_once __DIR__ . '/../Models/Comments.php';
-require_once __DIR__ . '/../Models/User.php';
-// app/Controllers/ArticleController.php
-class ArticleController extends Controller
-{
+
+class ArticleController extends Controller {
     public function show($id)
     {
         $article = Article::getArticle($id);
@@ -33,6 +31,7 @@ class ArticleController extends Controller
         $rating = $_POST['rating'];
         $eventId = $result['event'];
         Comments::newComment($eventId, $_SESSION['id'], $rating, $comment);
+        
     }
 
     public function create()
@@ -179,7 +178,6 @@ class ArticleController extends Controller
                 'cid' => (int)$_POST['club_id'],
                 'pid' => (int)$user->id
             ]);
-
             if (!$stmt->fetch()) {
                 $_SESSION['error'] = 'You do not have permission to create articles for this club.';
                 header('Location: /clubs');

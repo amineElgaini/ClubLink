@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'Club Platform' ?></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
         * {
             margin: 0;
@@ -289,10 +291,17 @@
                     <span>ClubHub</span>
                 </a>
                 <div class="nav-links">
-                    <a href="<?= url("/clubs") ?>">Clubs</a>
-                    <a href="<?= url("/clubs") ?>">Manage Events</a>
-                    <a href="<?= url("/admin/users") ?>">Manage Users</a>
-                    <a href="<?= url("/admin/clubs") ?>">Manage Clubs</a>
+
+                    <a href="<?= url('/clubs') ?>">Clubs</a>
+
+                    <?php if (isset($_SESSION['user']) && $_SESSION['user']->isPresident()): ?>
+                        <a href="<?= url('/president/events') ?>">Manage Events</a>
+                    <?php endif; ?>
+
+                    <?php if (isset($_SESSION['user']) && $_SESSION['user']->isAdmin()): ?>
+                        <a href="<?= url('/admin/users') ?>">Manage Users</a>
+                        <a href="<?= url('/admin/clubs') ?>">Manage Clubs</a>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="nav-right">

@@ -4,7 +4,6 @@ require_once __DIR__ . '/../../core/Controller.php';
 require_once __DIR__ . '/../Models/Club.php';
 require_once __DIR__ . '/../Models/Events.php';
 require_once __DIR__ . '/../Models/Evenement.php';
-require_once __DIR__ . '../../config/database.php';
 
 class EventController extends Controller
 {
@@ -13,17 +12,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        if (!isset($_SESSION['user'])) {
-            die('Session utilisateur inexistante');
-        }
 
-        $userId = $_SESSION['user']->id ?? $_SESSION['user']['id'];
-        $role = $_SESSION['user']->role ?? $_SESSION['user']['role'];
-
-        if ($role !== 'president') {
-            echo 'Accès refusé';
-            exit;
-        }
+        $userId = $_SESSION['user']->id;
 
         $db = Config::getPDO();
         $eventModel = new Evenement($db);
@@ -38,13 +28,20 @@ class EventController extends Controller
 
         $events = $eventModel->getEventsByClub($club['id']);
 
-        include __DIR__ . '/../Views/president/manage-event.php';
+        $this->view("president/manage-event", [
+            'club' => $club,
+            'events' => $events,
+            'eventModel' => $eventModel,
+            'clubModel' => $clubModel
+        ]);
+
     }
 
     /**
      * Student registers for event
      */
-    public function register($id = null)
+
+    public function create($id = null)
     {
         // Handle both student registration and event creation
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && $id === null) {
@@ -55,7 +52,7 @@ class EventController extends Controller
 
             $userId = $_SESSION['user']->id ?? $_SESSION['user']['id'];
             $club = $clubModel->getClubByPresident($userId);
-            
+
             if (!$club) {
                 die('Aucun club trouvé');
             }
@@ -69,7 +66,8 @@ class EventController extends Controller
                 'image_url' => $_POST['image_url'] ?? null
             ]);
 
-            header('Location: /events');
+
+            header('Location: ' .  url('president/events'));
             exit;
         } elseif ($id !== null) {
             // Student registering for event
@@ -99,7 +97,8 @@ class EventController extends Controller
             'image_url' => $_POST['image_url'] ?? null
         ]);
 
-        header('Location: /events');
+        header('Location: ' .  url('president/events'));
+
         exit;
     }
 
@@ -118,20 +117,18 @@ class EventController extends Controller
 
         $userId = $_SESSION['user']->id ?? $_SESSION['user']['id'];
         $club = $clubModel->getClubByPresident($userId);
-        
         if (!$club) {
             die('Aucun club trouvé');
         }
 
         $event = $eventModel->getEventById($id);
-        
         if (!$event || $event['club_id'] != $club['id']) {
             die('Suppression interdite');
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $eventModel->deleteEvent($id);
-            header('Location: /events');
+        header('Location: /president/events');
             exit;
         }
     }
@@ -139,26 +136,24 @@ class EventController extends Controller
     /**
      * View participants for an event
      */
-    public function participants(int $eventId): void
-    {
-        $db = Config::getPDO();
-        $eventModel = new Evenement($db);
-        $clubModel = new Club($db);
+    // public function participants(int $eventId): void
+    // {
+    //     $db = Config::getPDO();
+    //     $eventModel = new Evenement($db);
+    //     $clubModel = new Club($db);
 
-        $userId = $_SESSION['user']->id ?? $_SESSION['user']['id'];
-        $club = $clubModel->getClubByPresident($userId);
-        
-        if (!$club) {
-            die('Aucun club trouvé');
-        }
+    //     $userId = $_SESSION['user']->id ?? $_SESSION['user']['id'];
+    //     $club = $clubModel->getClubByPresident($userId);
+    //     if (!$club) {
+    //         die('Aucun club trouvé');
+    //     }
 
-        $event = $eventModel->getEventById($eventId);
-        
-        if (!$event || $event['club_id'] != $club['id']) {
-            die('Action interdite');
-        }
+    //     $event = $eventModel->getEventById($eventId);
+    //     if (!$event || $event['club_id'] != $club['id']) {
+    //         die('Action interdite');
+    //     }
 
-        $participants = $eventModel->getParticipants($eventId);
-        include __DIR__ . '/../Views/president/participants.php';
-    }
+    //     $participants = $eventModel->getParticipants($eventId);
+    //     include __DIR__ . '/../Views/president/participants.php';
+    // }
 }

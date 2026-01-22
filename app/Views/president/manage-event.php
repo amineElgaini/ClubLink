@@ -1,34 +1,24 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
+<script>
+    function openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) modal.classList.remove('hidden');
+    }
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Events Management</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) modal.classList.add('hidden');
+    }
 
-    <script>
-        function openModal(id) {
-            const modal = document.getElementById(id);
-            if (modal) modal.classList.remove('hidden');
-        }
-
-        function closeModal(id) {
-            const modal = document.getElementById(id);
-            if (modal) modal.classList.add('hidden');
-        }
-
-        document.querySelectorAll('.btn-update').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const id = 'update-' + btn.dataset.id;
-                openModal(id);
-            });
+    document.querySelectorAll('.btn-update').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = 'update-' + btn.dataset.id;
+            openModal(id);
         });
+    });
 
-    </script>
-</head>
+</script>
 
-<body class="bg-gray-900 text-white font-sans">
+<div class="bg-gray-900 text-white font-sans">
 
     <div class="p-6 max-w-6xl mx-auto">
         <h1 class="text-2xl font-bold mb-4">Events Management</h1>
@@ -49,11 +39,12 @@
                         <button onclick="openModal('update-<?= $event['id'] ?>')"
                             class="btn-update bg-blue-600 px-2 py-1 rounded">Edit</button>
 
-                        <form method="POST" action="<?= url('events/' . $event['id'] . '/delete') ?>"
+                        <form method="POST" action="<?= url('president/events/' . $event['id'] . '/delete') ?>"
                             onsubmit="return confirm('Supprimer cet événement ?')">
                             <button type="submit" class="bg-red-600 px-2 py-1 rounded">Delete</button>
                         </form>
-                        <button class="bg-gray-300 px-2 py-1 rounded">Article</button>
+                        <button method="POST" class="bg-gray-300 px-2 py-1 rounded"
+                            action="<?= url('/president/events/' . $event['id'] . '/article') ?>">Article</button>
 
                         <button onclick="openModal('participants-<?= $event['id'] ?>')"
                             class="bg-gray-600 px-2 py-1 rounded">Participants</button>
@@ -65,7 +56,9 @@
                     class="hidden fixed inset-0 bg-black/50 flex items-center justify-center">
                     <div class="bg-gray-700 p-6 rounded w-full max-w-md">
                         <h3 class="text-xl font-bold mb-4">Update Event</h3>
-                        <form method="POST" action="<?= url('events/' . $event['id'] . '/update') ?>" class="space-y-3">
+
+                        <form method="POST" action="<?= url('president/events/' . $event['id'] . '/update') ?>"
+                            class="space-y-3">
                             <input type="text" name="image_url" value="<?= htmlspecialchars($event['image_url'] ?? '') ?>"
                                 class="w-full p-2 rounded bg-gray-800">
                             <input type="text" name="title" value="<?= htmlspecialchars($event['title']) ?>"
@@ -125,7 +118,7 @@
     <div id="create" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center">
         <div class="bg-gray-700 p-6 rounded w-full max-w-md">
             <h3 class="text-xl font-bold mb-4">Create Event</h3>
-            <form method="POST" action="/events/register" class="space-y-3">
+            <form method="POST" action="<?= url('president/events') ?>" class="space-y-3">
                 <input type="text" name="title" placeholder="Title" class="w-full p-2 rounded bg-gray-800" required>
                 <textarea name="description" placeholder="Description"
                     class="w-full p-2 rounded bg-gray-800"></textarea>
@@ -142,8 +135,4 @@
     </div>
 
 
-
-
-</body>
-
-</html>
+</div>

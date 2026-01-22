@@ -1,16 +1,4 @@
 
-<!DOCTYPE html>
-<html class="light" lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Event Details and Reviews - UniEvents</title>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com" rel="preconnect" />
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Noto+Sans:wght@300..800&amp;display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
@@ -38,7 +26,6 @@
       },
     }
   </script>
-    
 
   <style>
     .material-symbols-outlined {
@@ -57,7 +44,7 @@
   </style>
 </head>
 
-<body class="bg-background-dark text-white font-display overflow-x-hidden transition-colors duration-200 antialiased">
+<div class="bg-background-dark text-white font-display overflow-x-hidden transition-colors duration-200 antialiased">
 
 <main class="bg-background-dark flex flex-1 justify-center py-8 px-4 md:px-6">
   <div class="flex flex-col max-w-[1100px] flex-1 gap-8">
@@ -73,7 +60,7 @@
             <?php 
             
             
-            if ($result['event_date'] != date("Y-m-d")) {
+            if ($result['event_date'] < date("Y-m-d")) {
             echo "L'evenement n'est pas active";
             }
             else {
@@ -142,7 +129,7 @@
 
           <div class="bg-surface-dark rounded-xl p-6 border border-border-dark mt-4 shadow-sm">
             <h4 class="text-lg font-bold mb-4 text-white">Leave a Review</h4>
-            <form action='<?= url('/clubs/events/'.($result['id'] ?? 0).'/comments') ?>' method="POST" class="flex flex-col gap-4">
+            <form action='<?= url('/clubs/event/'.($result['id'] ?? 0).'/comment') ?>' method="POST" class="flex flex-col gap-4">
               <div>
                 <label class="block text-sm font-medium text-gray-400 mb-2">Your Rating (1 out of 5)</label>
                 <input class="text-primary" type="range" min="1" max="5" value="" name="rating"/>
@@ -163,5 +150,4 @@
   </div>
 </main>
 
-</body>
-</html>
+</div>
