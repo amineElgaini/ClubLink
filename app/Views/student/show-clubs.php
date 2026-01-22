@@ -1,6 +1,4 @@
 <?php
-// This file should be placed in: Views/student/show-clubs.php
-// It will be loaded inside your layout.php container
 ?>
 
 <style>

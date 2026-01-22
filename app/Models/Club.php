@@ -21,7 +21,9 @@ class Club
     public static function getAllClubs(): array
     {
         $pdo = Config::getPDO();
-        $sql = "SELECT * FROM clubs";
+        $sql = "SELECT c.id, c.name, c.description, c.president_id, c.created_at, s.first_name, s.last_name FROM clubs c
+                LEFT JOIN students s ON s.id = c.president_id 
+                ORDER BY c.id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -109,7 +111,6 @@ class Club
             JOIN students s ON s.id = cm.student_id
             WHERE cm.club_id = :id
             ORDER BY cm.joined_at ASC
-            LIMIT :lim
         ");
         $stmt->bindValue(':id', (int)$clubId, PDO::PARAM_INT);
         $stmt->bindValue(':lim', (int)$limit, PDO::PARAM_INT);
@@ -317,4 +318,5 @@ class Club
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
 }

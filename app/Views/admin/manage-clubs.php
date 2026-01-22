@@ -1,3 +1,6 @@
+<?php
+    print_r ($clubs);
+?>
 <style>
     .clubs-page {
         max-width: 1200px;
@@ -322,7 +325,6 @@
                         <div>
                             <h3><?= htmlspecialchars($club['name']) ?></h3>
                         </div>
-                        <span class="club-id">#<?= $club['id'] ?></span>
                     </div>
 
                     <p class="club-description"><?= htmlspecialchars($club['description']) ?></p>
@@ -330,8 +332,8 @@
                     <div class="club-president">
                         <div class="president-icon">👤</div>
                         <div class="president-info">
-                            <p class="president-label">President ID</p>
-                            <p class="president-id"><?= $club['president_id'] ?? 'Not assigned' ?></p>
+                            <p class="president-label">President name</p>
+                            <p class="president-id"><?= $club['first_name'] . " ". $club['last_name'] ?? 'Not assigned' ?></p>
                         </div>
                     </div>
 

@@ -12,13 +12,6 @@ if (file_exists($envFile)) {
         $_ENV[trim($key)] = trim($value);
     }
 }
-define('BASE_URL', '/');
-function url(string $path = ''): string
-{
-    $base = rtrim(BASE_URL, '/');
-    $path = ltrim($path, '/');
-    return $base . '/' . $path;
-}
 
 define('BASE_URL', '/ClubLink');
 function url(string $path = ''): string
@@ -39,10 +32,7 @@ require_once __DIR__ . '/../core/Controller.php';
 session_start();
 ErrorHandler::register();
 
-// $_SESSION['user'] = [
-//     'id' => 3,
-//     'role' => 'student'
-// ];
+
 
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../core/Router.php';
