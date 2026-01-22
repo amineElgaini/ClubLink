@@ -249,7 +249,7 @@ class Club
     /**
      * Create a new club
      */
-    public static function create($data)
+    public static function create($data): bool
     {
         $pdo = Config::getPDO();
         
